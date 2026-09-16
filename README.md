@@ -1,6 +1,8 @@
 # Subscription BizOps dataset and briefing dashboard
 
-_Created by BEKAS Ioannis — a strategy & business-operations portfolio piece._
+_Created by [BEKAS Ioannis](https://www.linkedin.com/in/ioannisbekas/) — a strategy & business-operations portfolio piece._
+
+**Live dashboard → https://ioannisbekas.github.io/subscription-bizops-dashboard/**
 
 A synthetic strategy-and-operations dataset for a consumer AI-companion subscription business, and an
 Economist-style dashboard built on top of it. Everything is generated from a seeded simulation: **no real
