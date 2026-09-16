@@ -93,7 +93,7 @@
 
   /* ---------- KPI strip ---------- */
   function kpis() {
-    const wrap = document.getElementById("kpis");
+    const wrap = h("div", { class: "inner" }, document.getElementById("kpis"));
     D.kpis.forEach((k) => {
       const box = h("div", { class: "kpi" }, wrap);
       h("div", { class: "label", text: k.label }, box);
