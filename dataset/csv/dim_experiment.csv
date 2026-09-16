@@ -1,0 +1,11 @@
+experiment_id,experiment_name,area,start_date,end_date,decision,primary_metric,hypothesis
+EXP01,Paywall timing: 20 vs 10 free messages,Growth,2024-03-04,2024-03-31,Shipped B on 2024-04-01,paid_conversions / paywall_viewers,Showing the paywall earlier converts more users without hurting retention
+EXP02,"Token decoy pack (4,500 tokens) on store",Monetisation,2024-09-02,2024-09-29,Shipped B on 2024-10-01,token_revenue_usd / token_store_visitors,A large anchor pack lifts average token order value
+EXP03,Monthly price 12.99 vs 13.99,Pricing,2025-01-13,2025-02-09,Shipped B on 2025-03-01,first_payment_net_usd / paywall_viewers,+$1 on the monthly plan raises revenue per viewer with limited conversion loss
+EXP04,Annual discount 57% vs 70% off,Pricing,2025-04-01,2025-05-31,Shipped B on 2025-06-01,first_payment_net_usd / paywall_viewers,A deeper annual discount lifts conversion and cash collected per viewer
+EXP05,Onboarding voice preview + memory recap,Retention,2025-06-16,2025-07-13,Shipped B on 2025-07-15,m1_retained_subs / new_paid_subscribers,Hearing the companion's voice in onboarding lifts month-1 retention
+EXP06,Free message cap 50/day vs 30/day,Unit economics,2025-10-06,2025-11-02,Shipped B on 2025-11-10,free_compute_cost_usd / free_active_users,A tighter free message cap cuts free-tier GPU cost without hurting conversion
+EXP07,1-click USDC crypto checkout,Payments,2025-12-01,2026-01-11,Shipped B on 2026-01-15,checkout_completions / crypto_checkout_starts,One-click USDC reduces crypto checkout abandonment
+EXP08,Smart retries + network tokens (Acquirer C pilot),Payments,2026-01-12,2026-02-08,Migrated 70% of card volume by Apr-2026,recovered_by_retry / first_attempt_declines,Network tokens + smart retries reduce involuntary churn
+EXP09,Live Action upsell on paywall,Monetisation,2026-03-09,2026-04-05,Shipped B on 2026-04-07,token_buyers_30d / paid_conversions,Teasing Live Action on the paywall lifts early token purchases
+EXP10,Back-to-School: 70% vs 75% off annual,Pricing,2026-07-13,2026-08-09,Kept A (70% off),first_payment_net_usd / paywall_viewers,75% off annual during Back-to-School beats 70% off

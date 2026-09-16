@@ -1,0 +1,6 @@
+cluster_id,provider,gpu_type,pricing_model,hourly_rate_usd,live_from,retired_on
+GC1,Cloud A,H100 80GB,On-demand,3.2,2024-01-01,
+GC2,Cloud A,A100 80GB,1-yr reserved,1.35,2024-01-01,2025-12-31
+GC3,Cloud B,L40S 48GB,Spot,0.75,2024-06-01,
+GC4,Cloud B,H200 141GB,On-demand,3.8,2025-06-01,
+GC5,Cloud C,H100 80GB,1-yr reserved,2.05,2026-02-01,

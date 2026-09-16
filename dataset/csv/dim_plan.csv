@@ -1,0 +1,4 @@
+plan_id,plan_name,billing_period_months,current_price_per_month,current_billed_amount,list_price_per_month,current_discount,tokens_per_month
+P1M,1 Month,1,13.99,13.99,13.99,0.0,100
+P3M,3 Months,3,8.99,26.97,13.99,0.35,100
+P12M,12 Months,12,3.99,47.88,13.99,0.7,100

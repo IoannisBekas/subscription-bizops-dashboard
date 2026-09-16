@@ -1,0 +1,4 @@
+price_book_id,valid_from,valid_to,p1m_per_month,p3m_per_month,p12m_per_month,p1m_billed,p1m_discount_vs_monthly,p3m_billed,p3m_discount_vs_monthly,p12m_billed,p12m_discount_vs_monthly
+PB1,2024-01-01,2025-02-28,12.99,9.99,5.99,12.99,0.0,29.97,0.231,71.88,0.539
+PB2,2025-03-01,2025-05-31,13.99,9.99,5.99,13.99,0.0,29.97,0.286,71.88,0.572
+PB3,2025-06-01,,13.99,8.99,3.99,13.99,0.0,26.97,0.357,47.88,0.715

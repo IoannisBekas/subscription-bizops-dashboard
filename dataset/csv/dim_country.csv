@@ -1,0 +1,18 @@
+country_code,country,region,market_tier,pricing_currency,tax_rate
+US,United States,North America,Tier 1,USD,0.06
+GB,United Kingdom,Europe,Tier 1,GBP,0.2
+DE,Germany,Europe,Tier 1,EUR,0.19
+FR,France,Europe,Tier 1,EUR,0.2
+CA,Canada,North America,Tier 1,USD,0.13
+AU,Australia,APAC,Tier 1,USD,0.1
+NL,Netherlands,Europe,Tier 1,EUR,0.21
+CH,Switzerland,Europe,Tier 1,EUR,0.081
+SE,Sweden,Europe,Tier 1,EUR,0.25
+ES,Spain,Europe,Tier 2,EUR,0.21
+IT,Italy,Europe,Tier 2,EUR,0.22
+PL,Poland,Europe,Tier 2,EUR,0.23
+JP,Japan,APAC,Tier 2,USD,0.1
+BR,Brazil,LATAM,Tier 3,USD,0.05
+MX,Mexico,LATAM,Tier 3,USD,0.16
+IN,India,APAC,Tier 3,USD,0.18
+ROW,Rest of World,Rest of World,Tier 3,USD,0.05

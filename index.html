@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Candy AI: a business review</title>
+<meta name="description" content="An Economist-style dashboard of Candy AI's subscription economics, built on a synthetic BizOps dataset: MRR, cohorts, CAC and payback, compute cost and budget variance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/economist.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span>Candy AI &middot; Strategy &amp; BizOps briefing</span>
+    <span class="right">Synthetic data &middot; September 2026</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <h1>Artificial intimacy, real economics</h1>
+  <p class="standfirst">A 70%-off annual plan, cheaper inference and nine acquisition channels took Candy AI from
+    launch to a $22m revenue run-rate in 32 months. The next test is whether those annual subscribers renew.</p>
+  <p class="byline">A modelled business review &middot; data to August 2026</p>
+  <p class="badge"><b>These numbers are simulated.</b> Plans, prices, token rules and payment methods follow
+    candy.ai as observed in September 2026; volumes, retention, costs and outcomes are modelled. Nothing here is
+    Candy AI's reported data.</p>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="inner">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#growth">Growth</a></li>
+      <li><a href="#retention">Retention</a></li>
+      <li><a href="#operations">Compute &amp; ops</a></li>
+      <li><a href="#finance">Against the plan</a></li>
+    </ul>
+    <div class="range" role="group" aria-label="Time range">
+      <span>Show</span>
+      <button type="button" data-range="all" aria-pressed="true">All</button>
+      <button type="button" data-range="24m" aria-pressed="false">24m</button>
+      <button type="button" data-range="12m" aria-pressed="false">12m</button>
+    </div>
+  </div>
+</nav>
+
+<div class="kpis" id="kpis" aria-label="Headline indicators"></div>
+
+<main></main>
+
+<footer>
+  <p><b>About this dashboard.</b> Built from a synthetic Candy AI BizOps dataset: 35 linked tables covering
+    January 2024 to August 2026, with FY2025 and FY2026 budgets and a September&ndash;December 2026 forecast.
+    Every chart names the table it comes from. Revenue is net of VAT and reported in dollars; EUR and GBP
+    charges are converted at the month's average rate.</p>
+  <p><b>Method.</b> Subscribers are simulated one by one - plan, country, channel, payment method, renewals,
+    churn, win-backs and token purchases - and the tables are aggregated from those events, so they reconcile:
+    the MRR bridge closes to the cent and subscriber counts match the marketing and funnel tables.
+    Lifetime value is cumulative net revenue per original cohort member; payback applies the trailing gross
+    margin to that curve and is a cash measure, because annual plans are billed up front.</p>
+  <p>Data generated <span id="generated"></span>. Charts hand-drawn in SVG - no chart library.</p>
+</footer>
+
+<script src="data/dashboard.js"></script>
+<script src="assets/charts.js"></script>
+<script src="assets/dashboard.js"></script>
+</body>
+</html>

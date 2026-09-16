@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.claude/
+.DS_Store
+
+# rebuilt by dataset/generator/build.py --export (too large for git)
+dataset/csv/fact_subscribers.csv
+dataset/csv/fact_revenue_daily.csv
+dataset/csv/fact_support_tickets.csv

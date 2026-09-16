@@ -1,0 +1,5 @@
+processor_id,processor,method_type,live_from,fee_pct,fee_fixed_usd,chargeback_fee_usd,initial_decline_rate,renewal_decline_rate,dunning_recovery_rate
+ACQ_A,Acquirer A (EU high-risk),Card,2024-01,0.055,0.35,25.0,0.14,0.12,0.3
+ACQ_B,Acquirer B (US high-risk),Card,2024-01,0.06,0.3,25.0,0.16,0.14,0.32
+ACQ_C,Acquirer C (network tokens + smart retries),Card,2026-02,0.049,0.3,20.0,0.1,0.07,0.52
+CRYPTO_GW,Crypto gateway,Crypto,2024-01,0.015,0.0,0.0,0.04,0.0,0.0

@@ -1,0 +1,321 @@
+month,department,cost_group,headcount_eom,hires,exits,fully_loaded_cost_usd
+2024-01,Engineering,R&D,5,0,0,36680.65
+2024-02,Engineering,R&D,5,0,0,36336.69
+2024-03,Engineering,R&D,6,1,0,42902.64
+2024-04,Engineering,R&D,6,1,1,43728.96
+2024-05,Engineering,R&D,6,0,0,43984.64
+2024-06,Engineering,R&D,6,0,0,42858.42
+2024-07,Engineering,R&D,7,1,0,50932.38
+2024-08,Engineering,R&D,7,0,0,50035.14
+2024-09,Engineering,R&D,7,0,0,50984.22
+2024-10,Engineering,R&D,8,1,0,58127.15
+2024-11,Engineering,R&D,8,0,0,57227.03
+2024-12,Engineering,R&D,8,0,0,57772.83
+2025-01,Engineering,R&D,9,1,0,65691.29
+2025-02,Engineering,R&D,9,0,0,67940.54
+2025-03,Engineering,R&D,9,0,0,67347.44
+2025-04,Engineering,R&D,9,0,0,65447.4
+2025-05,Engineering,R&D,10,1,0,73205.11
+2025-06,Engineering,R&D,10,0,0,75363.74
+2025-07,Engineering,R&D,10,1,1,73805.77
+2025-08,Engineering,R&D,10,0,0,73589.34
+2025-09,Engineering,R&D,10,0,0,72718.91
+2025-10,Engineering,R&D,11,1,0,81660.82
+2025-11,Engineering,R&D,11,0,0,82432.84
+2025-12,Engineering,R&D,11,0,0,80371.88
+2026-01,Engineering,R&D,11,1,1,85158.9
+2026-02,Engineering,R&D,12,1,0,92700.97
+2026-03,Engineering,R&D,12,0,0,90398.48
+2026-04,Engineering,R&D,12,0,0,90420.55
+2026-05,Engineering,R&D,12,0,0,91481.24
+2026-06,Engineering,R&D,13,1,0,100229.85
+2026-07,Engineering,R&D,13,1,1,99953.09
+2026-08,Engineering,R&D,13,0,0,99925.31
+2024-01,ML / AI,R&D,2,1,1,20107.57
+2024-02,ML / AI,R&D,2,0,0,20377.92
+2024-03,ML / AI,R&D,2,0,0,20399.8
+2024-04,ML / AI,R&D,2,0,0,20685.15
+2024-05,ML / AI,R&D,3,1,0,30246.84
+2024-06,ML / AI,R&D,3,0,0,30480.52
+2024-07,ML / AI,R&D,3,0,0,30562.64
+2024-08,ML / AI,R&D,3,0,0,30347.8
+2024-09,ML / AI,R&D,3,0,0,30796.11
+2024-10,ML / AI,R&D,3,0,0,30252.46
+2024-11,ML / AI,R&D,4,1,0,40220.05
+2024-12,ML / AI,R&D,4,0,0,40419.22
+2025-01,ML / AI,R&D,4,0,0,41799.69
+2025-02,ML / AI,R&D,4,0,0,41699.85
+2025-03,ML / AI,R&D,4,0,0,41348.95
+2025-04,ML / AI,R&D,4,0,0,41522.05
+2025-05,ML / AI,R&D,4,0,0,42141.81
+2025-06,ML / AI,R&D,4,0,0,41810.74
+2025-07,ML / AI,R&D,4,0,0,41466.03
+2025-08,ML / AI,R&D,5,1,0,53437.46
+2025-09,ML / AI,R&D,5,0,0,52030.35
+2025-10,ML / AI,R&D,5,0,0,51691.57
+2025-11,ML / AI,R&D,5,0,0,52662.16
+2025-12,ML / AI,R&D,5,0,0,53093.81
+2026-01,ML / AI,R&D,5,0,0,53337.07
+2026-02,ML / AI,R&D,5,0,0,54036.61
+2026-03,ML / AI,R&D,5,0,0,54545.48
+2026-04,ML / AI,R&D,6,1,0,64586.48
+2026-05,ML / AI,R&D,6,0,0,66019.36
+2026-06,ML / AI,R&D,6,0,0,64799.77
+2026-07,ML / AI,R&D,6,0,0,65516.16
+2026-08,ML / AI,R&D,6,0,0,66127.2
+2024-01,Product & Design,R&D,1,0,0,6473.71
+2024-02,Product & Design,R&D,1,0,0,6318.16
+2024-03,Product & Design,R&D,1,0,0,6296.93
+2024-04,Product & Design,R&D,1,0,0,6424.85
+2024-05,Product & Design,R&D,1,0,0,6358.16
+2024-06,Product & Design,R&D,2,1,0,12901.73
+2024-07,Product & Design,R&D,2,0,0,12863.75
+2024-08,Product & Design,R&D,2,0,0,12658.42
+2024-09,Product & Design,R&D,2,0,0,12664.67
+2024-10,Product & Design,R&D,2,0,0,12983.07
+2024-11,Product & Design,R&D,2,0,0,13038.07
+2024-12,Product & Design,R&D,2,0,0,12758.82
+2025-01,Product & Design,R&D,2,0,0,13337.13
+2025-02,Product & Design,R&D,2,0,0,13278.59
+2025-03,Product & Design,R&D,3,1,0,19941.81
+2025-04,Product & Design,R&D,3,0,0,19636.04
+2025-05,Product & Design,R&D,3,0,0,19694.77
+2025-06,Product & Design,R&D,3,0,0,19820.06
+2025-07,Product & Design,R&D,3,0,0,19888.2
+2025-08,Product & Design,R&D,3,0,0,19626.82
+2025-09,Product & Design,R&D,3,0,0,19896.47
+2025-10,Product & Design,R&D,3,0,0,19686.41
+2025-11,Product & Design,R&D,3,0,0,19913.81
+2025-12,Product & Design,R&D,3,0,0,19937.82
+2026-01,Product & Design,R&D,3,0,0,20670.49
+2026-02,Product & Design,R&D,3,0,0,20107.48
+2026-03,Product & Design,R&D,4,1,0,27527.02
+2026-04,Product & Design,R&D,4,0,0,27136.8
+2026-05,Product & Design,R&D,4,0,0,27323.11
+2026-06,Product & Design,R&D,4,0,0,27647.19
+2026-07,Product & Design,R&D,4,0,0,27393.86
+2026-08,Product & Design,R&D,4,0,0,26787.46
+2024-01,Data & Analytics,R&D,1,0,0,5977.13
+2024-02,Data & Analytics,R&D,1,0,0,6028.53
+2024-03,Data & Analytics,R&D,1,0,0,5935.67
+2024-04,Data & Analytics,R&D,1,0,0,6095.46
+2024-05,Data & Analytics,R&D,1,0,0,6062.58
+2024-06,Data & Analytics,R&D,1,0,0,6103.55
+2024-07,Data & Analytics,R&D,1,0,0,6031.28
+2024-08,Data & Analytics,R&D,2,1,0,11823.11
+2024-09,Data & Analytics,R&D,2,0,0,11876.71
+2024-10,Data & Analytics,R&D,2,0,0,11860.16
+2024-11,Data & Analytics,R&D,2,0,0,12110.81
+2024-12,Data & Analytics,R&D,2,0,0,12078.58
+2025-01,Data & Analytics,R&D,2,0,0,12140.69
+2025-02,Data & Analytics,R&D,2,0,0,12449.74
+2025-03,Data & Analytics,R&D,2,0,0,12442.59
+2025-04,Data & Analytics,R&D,2,0,0,12551.61
+2025-05,Data & Analytics,R&D,2,0,0,12533.81
+2025-06,Data & Analytics,R&D,2,0,0,12510.18
+2025-07,Data & Analytics,R&D,2,0,0,12439.79
+2025-08,Data & Analytics,R&D,2,0,0,12252.05
+2025-09,Data & Analytics,R&D,2,0,0,12149.69
+2025-10,Data & Analytics,R&D,2,1,1,12430.44
+2025-11,Data & Analytics,R&D,2,0,0,12584.96
+2025-12,Data & Analytics,R&D,3,1,0,18443.72
+2026-01,Data & Analytics,R&D,3,0,0,19435.31
+2026-02,Data & Analytics,R&D,3,0,0,18905.37
+2026-03,Data & Analytics,R&D,3,0,0,19450.25
+2026-04,Data & Analytics,R&D,3,0,0,19111.82
+2026-05,Data & Analytics,R&D,3,0,0,18841.14
+2026-06,Data & Analytics,R&D,3,0,0,19243.72
+2026-07,Data & Analytics,R&D,3,0,0,19009.16
+2026-08,Data & Analytics,R&D,3,0,0,18753.62
+2024-01,Growth & Marketing,Sales & Marketing,2,0,0,10798.22
+2024-02,Growth & Marketing,Sales & Marketing,2,1,1,10788.39
+2024-03,Growth & Marketing,Sales & Marketing,2,0,0,11101.5
+2024-04,Growth & Marketing,Sales & Marketing,2,0,0,11044.64
+2024-05,Growth & Marketing,Sales & Marketing,3,1,0,16500.57
+2024-06,Growth & Marketing,Sales & Marketing,3,0,0,16811.84
+2024-07,Growth & Marketing,Sales & Marketing,3,0,0,16634.29
+2024-08,Growth & Marketing,Sales & Marketing,3,0,0,16726.18
+2024-09,Growth & Marketing,Sales & Marketing,3,0,0,16266.3
+2024-10,Growth & Marketing,Sales & Marketing,3,0,0,16572.84
+2024-11,Growth & Marketing,Sales & Marketing,4,1,0,22262.54
+2024-12,Growth & Marketing,Sales & Marketing,4,0,0,21854.43
+2025-01,Growth & Marketing,Sales & Marketing,4,0,0,23006.35
+2025-02,Growth & Marketing,Sales & Marketing,4,0,0,22706.93
+2025-03,Growth & Marketing,Sales & Marketing,4,0,0,23090.93
+2025-04,Growth & Marketing,Sales & Marketing,4,0,0,22235.8
+2025-05,Growth & Marketing,Sales & Marketing,4,0,0,22993.67
+2025-06,Growth & Marketing,Sales & Marketing,4,0,0,22295.99
+2025-07,Growth & Marketing,Sales & Marketing,4,0,0,22961.2
+2025-08,Growth & Marketing,Sales & Marketing,5,1,0,28619.17
+2025-09,Growth & Marketing,Sales & Marketing,5,0,0,27899.16
+2025-10,Growth & Marketing,Sales & Marketing,5,0,0,28831.11
+2025-11,Growth & Marketing,Sales & Marketing,5,0,0,28549.8
+2025-12,Growth & Marketing,Sales & Marketing,5,0,0,28431.74
+2026-01,Growth & Marketing,Sales & Marketing,5,0,0,28728.54
+2026-02,Growth & Marketing,Sales & Marketing,5,0,0,28914.73
+2026-03,Growth & Marketing,Sales & Marketing,5,0,0,28787.05
+2026-04,Growth & Marketing,Sales & Marketing,6,1,0,34969.16
+2026-05,Growth & Marketing,Sales & Marketing,6,0,0,34516.77
+2026-06,Growth & Marketing,Sales & Marketing,6,0,0,35440.28
+2026-07,Growth & Marketing,Sales & Marketing,6,0,0,35636.32
+2026-08,Growth & Marketing,Sales & Marketing,6,0,0,35230.12
+2024-01,Customer Support,Support & Trust,1,0,0,2955.77
+2024-02,Customer Support,Support & Trust,1,0,0,2982.06
+2024-03,Customer Support,Support & Trust,1,0,0,3010.92
+2024-04,Customer Support,Support & Trust,1,0,0,3025.02
+2024-05,Customer Support,Support & Trust,1,0,0,3023.51
+2024-06,Customer Support,Support & Trust,2,1,0,6091.37
+2024-07,Customer Support,Support & Trust,2,0,0,6105.23
+2024-08,Customer Support,Support & Trust,2,0,0,5967.08
+2024-09,Customer Support,Support & Trust,2,0,0,6024.32
+2024-10,Customer Support,Support & Trust,2,0,0,5918.99
+2024-11,Customer Support,Support & Trust,2,0,0,6022.31
+2024-12,Customer Support,Support & Trust,2,0,0,6080.29
+2025-01,Customer Support,Support & Trust,2,0,0,6261.74
+2025-02,Customer Support,Support & Trust,2,0,0,6116.07
+2025-03,Customer Support,Support & Trust,3,1,0,9399.35
+2025-04,Customer Support,Support & Trust,3,0,0,9139.44
+2025-05,Customer Support,Support & Trust,3,0,0,9089.77
+2025-06,Customer Support,Support & Trust,3,0,0,9363.87
+2025-07,Customer Support,Support & Trust,3,0,0,9397.46
+2025-08,Customer Support,Support & Trust,3,0,0,9318.19
+2025-09,Customer Support,Support & Trust,3,0,0,9332.46
+2025-10,Customer Support,Support & Trust,3,0,0,9307.89
+2025-11,Customer Support,Support & Trust,3,0,0,9361.43
+2025-12,Customer Support,Support & Trust,3,0,0,9326.91
+2026-01,Customer Support,Support & Trust,3,0,0,9619.87
+2026-02,Customer Support,Support & Trust,3,0,0,9490.73
+2026-03,Customer Support,Support & Trust,4,1,0,12832.53
+2026-04,Customer Support,Support & Trust,4,0,0,12815.62
+2026-05,Customer Support,Support & Trust,4,0,0,12906.34
+2026-06,Customer Support,Support & Trust,4,0,0,12502.61
+2026-07,Customer Support,Support & Trust,4,0,0,12594.01
+2026-08,Customer Support,Support & Trust,4,1,1,12910.62
+2024-01,Trust & Safety,Support & Trust,1,0,0,3137.69
+2024-02,Trust & Safety,Support & Trust,1,0,0,3239.48
+2024-03,Trust & Safety,Support & Trust,1,0,0,3258.79
+2024-04,Trust & Safety,Support & Trust,1,0,0,3172.96
+2024-05,Trust & Safety,Support & Trust,1,0,0,3243.15
+2024-06,Trust & Safety,Support & Trust,2,1,0,6478.13
+2024-07,Trust & Safety,Support & Trust,2,0,0,6464.96
+2024-08,Trust & Safety,Support & Trust,2,0,0,6446.32
+2024-09,Trust & Safety,Support & Trust,2,0,0,6517.83
+2024-10,Trust & Safety,Support & Trust,2,0,0,6408.31
+2024-11,Trust & Safety,Support & Trust,2,1,1,6339.95
+2024-12,Trust & Safety,Support & Trust,2,0,0,6479.24
+2025-01,Trust & Safety,Support & Trust,2,0,0,6526.15
+2025-02,Trust & Safety,Support & Trust,2,0,0,6703.86
+2025-03,Trust & Safety,Support & Trust,3,1,0,9897.01
+2025-04,Trust & Safety,Support & Trust,3,0,0,9856.72
+2025-05,Trust & Safety,Support & Trust,3,0,0,9891.98
+2025-06,Trust & Safety,Support & Trust,3,0,0,10046.6
+2025-07,Trust & Safety,Support & Trust,3,0,0,9935.78
+2025-08,Trust & Safety,Support & Trust,3,0,0,9798.2
+2025-09,Trust & Safety,Support & Trust,3,0,0,9920.23
+2025-10,Trust & Safety,Support & Trust,3,0,0,9920.65
+2025-11,Trust & Safety,Support & Trust,3,0,0,10077.27
+2025-12,Trust & Safety,Support & Trust,3,0,0,9955.41
+2026-01,Trust & Safety,Support & Trust,3,0,0,10294.74
+2026-02,Trust & Safety,Support & Trust,3,0,0,10229.04
+2026-03,Trust & Safety,Support & Trust,4,1,0,13564.92
+2026-04,Trust & Safety,Support & Trust,4,0,0,13847.11
+2026-05,Trust & Safety,Support & Trust,4,0,0,13736.49
+2026-06,Trust & Safety,Support & Trust,4,0,0,13666.68
+2026-07,Trust & Safety,Support & Trust,4,0,0,13612.97
+2026-08,Trust & Safety,Support & Trust,4,0,0,13497.77
+2024-01,Finance & Strategy,G&A,1,0,0,6403.61
+2024-02,Finance & Strategy,G&A,1,0,0,6450.07
+2024-03,Finance & Strategy,G&A,1,0,0,6434.54
+2024-04,Finance & Strategy,G&A,1,0,0,6348.4
+2024-05,Finance & Strategy,G&A,1,0,0,6377.94
+2024-06,Finance & Strategy,G&A,1,0,0,6503.0
+2024-07,Finance & Strategy,G&A,1,0,0,6368.86
+2024-08,Finance & Strategy,G&A,2,1,0,12547.4
+2024-09,Finance & Strategy,G&A,2,0,0,12620.33
+2024-10,Finance & Strategy,G&A,2,0,0,12874.47
+2024-11,Finance & Strategy,G&A,2,0,0,12888.2
+2024-12,Finance & Strategy,G&A,2,0,0,12876.99
+2025-01,Finance & Strategy,G&A,2,0,0,12984.33
+2025-02,Finance & Strategy,G&A,2,0,0,13186.59
+2025-03,Finance & Strategy,G&A,2,0,0,13325.38
+2025-04,Finance & Strategy,G&A,2,0,0,13178.17
+2025-05,Finance & Strategy,G&A,2,0,0,13435.41
+2025-06,Finance & Strategy,G&A,2,0,0,13313.49
+2025-07,Finance & Strategy,G&A,2,0,0,13405.66
+2025-08,Finance & Strategy,G&A,2,0,0,13266.8
+2025-09,Finance & Strategy,G&A,2,0,0,13406.97
+2025-10,Finance & Strategy,G&A,2,0,0,13365.78
+2025-11,Finance & Strategy,G&A,2,0,0,13272.29
+2025-12,Finance & Strategy,G&A,3,1,0,19792.12
+2026-01,Finance & Strategy,G&A,3,0,0,20302.26
+2026-02,Finance & Strategy,G&A,3,0,0,20568.39
+2026-03,Finance & Strategy,G&A,3,0,0,20188.55
+2026-04,Finance & Strategy,G&A,3,0,0,19974.07
+2026-05,Finance & Strategy,G&A,3,0,0,20075.5
+2026-06,Finance & Strategy,G&A,3,0,0,20736.67
+2026-07,Finance & Strategy,G&A,3,0,0,20542.81
+2026-08,Finance & Strategy,G&A,3,0,0,20662.3
+2024-01,"People, Legal & Admin",G&A,1,0,0,5026.96
+2024-02,"People, Legal & Admin",G&A,1,0,0,5011.78
+2024-03,"People, Legal & Admin",G&A,1,0,0,5050.54
+2024-04,"People, Legal & Admin",G&A,1,0,0,5007.24
+2024-05,"People, Legal & Admin",G&A,1,0,0,5056.35
+2024-06,"People, Legal & Admin",G&A,1,0,0,5119.09
+2024-07,"People, Legal & Admin",G&A,1,0,0,5125.77
+2024-08,"People, Legal & Admin",G&A,1,0,0,5153.14
+2024-09,"People, Legal & Admin",G&A,1,0,0,5193.87
+2024-10,"People, Legal & Admin",G&A,1,0,0,5040.05
+2024-11,"People, Legal & Admin",G&A,1,0,0,5126.49
+2024-12,"People, Legal & Admin",G&A,1,0,0,5067.38
+2025-01,"People, Legal & Admin",G&A,1,0,0,5178.64
+2025-02,"People, Legal & Admin",G&A,1,0,0,5218.67
+2025-03,"People, Legal & Admin",G&A,2,1,0,10507.31
+2025-04,"People, Legal & Admin",G&A,2,0,0,10698.17
+2025-05,"People, Legal & Admin",G&A,2,0,0,10711.52
+2025-06,"People, Legal & Admin",G&A,2,0,0,10366.24
+2025-07,"People, Legal & Admin",G&A,2,0,0,10416.36
+2025-08,"People, Legal & Admin",G&A,2,0,0,10622.93
+2025-09,"People, Legal & Admin",G&A,2,0,0,10480.04
+2025-10,"People, Legal & Admin",G&A,2,0,0,10699.53
+2025-11,"People, Legal & Admin",G&A,2,0,0,10301.14
+2025-12,"People, Legal & Admin",G&A,2,0,0,10681.76
+2026-01,"People, Legal & Admin",G&A,2,0,0,10921.08
+2026-02,"People, Legal & Admin",G&A,2,0,0,10712.37
+2026-03,"People, Legal & Admin",G&A,2,0,0,10972.46
+2026-04,"People, Legal & Admin",G&A,2,0,0,10883.27
+2026-05,"People, Legal & Admin",G&A,2,0,0,11014.09
+2026-06,"People, Legal & Admin",G&A,2,0,0,10693.68
+2026-07,"People, Legal & Admin",G&A,2,0,0,10863.95
+2026-08,"People, Legal & Admin",G&A,2,0,0,10936.22
+2024-01,Leadership,G&A,2,0,0,26023.85
+2024-02,Leadership,G&A,2,0,0,25910.65
+2024-03,Leadership,G&A,2,0,0,25691.68
+2024-04,Leadership,G&A,2,0,0,25620.81
+2024-05,Leadership,G&A,2,0,0,26303.51
+2024-06,Leadership,G&A,2,0,0,25763.29
+2024-07,Leadership,G&A,2,0,0,25734.65
+2024-08,Leadership,G&A,2,0,0,26493.99
+2024-09,Leadership,G&A,2,0,0,26114.97
+2024-10,Leadership,G&A,2,0,0,26166.98
+2024-11,Leadership,G&A,2,0,0,26135.87
+2024-12,Leadership,G&A,2,0,0,26114.85
+2025-01,Leadership,G&A,2,0,0,27294.86
+2025-02,Leadership,G&A,2,0,0,27085.65
+2025-03,Leadership,G&A,3,1,0,40412.64
+2025-04,Leadership,G&A,3,0,0,40396.1
+2025-05,Leadership,G&A,3,0,0,39478.37
+2025-06,Leadership,G&A,3,0,0,40927.19
+2025-07,Leadership,G&A,3,0,0,40911.45
+2025-08,Leadership,G&A,3,0,0,40671.13
+2025-09,Leadership,G&A,3,0,0,39719.74
+2025-10,Leadership,G&A,3,0,0,40407.07
+2025-11,Leadership,G&A,3,0,0,39683.48
+2025-12,Leadership,G&A,3,0,0,40186.34
+2026-01,Leadership,G&A,3,0,0,41427.73
+2026-02,Leadership,G&A,3,0,0,40880.15
+2026-03,Leadership,G&A,3,0,0,41613.02
+2026-04,Leadership,G&A,3,0,0,40756.02
+2026-05,Leadership,G&A,3,0,0,41204.22
+2026-06,Leadership,G&A,3,0,0,41107.58
+2026-07,Leadership,G&A,3,0,0,41708.16
+2026-08,Leadership,G&A,3,0,0,41386.46

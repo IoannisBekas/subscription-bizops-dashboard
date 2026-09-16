@@ -1,0 +1,35 @@
+event_date,category,event,expected_impact
+2024-03-04,Product,My Private Content (MPC) packs launched,Token sink; adds content cost
+2024-04-01,Growth,Paywall after 10 free messages (EXP01 shipped),Sign-up to paid conversion +6%
+2024-06-03,Product,Voice calls (beta) launched,New token sink; speech GPU load
+2024-10-01,Monetisation,"4,500-token anchor pack added (EXP02 shipped)",Token average order value up
+2024-11-04,Product,Video generation launched (image-to-video),Token revenue step-up; GPU cost up
+2024-11-04,Infra,GPU capacity crunch after video launch (to 15-Dec),Image/video p95 latency and error rate spike; tech tickets
+2025-01-06,Market,French localised site launched,France share of new subs rises
+2025-02-03,Retention,CRM win-back email programme launched,Reactivations up
+2025-03-01,Pricing,Monthly plan 12.99 -> 13.99 for new subscribers (EXP03),Monthly ARPU up
+2025-03-01,Ops,Support BPO vendor change,Lower first-response time and cost per ticket
+2025-04-01,Pricing,Annual discount test 57% vs 70% off starts (EXP04),Half of traffic sees 3.99/mo annual
+2025-04-07,Infra,Video model v2,Cost per video clip -32%
+2025-04-14,Ops,Self-serve cancellation in account settings,Cancellation tickets and chargebacks fall
+2025-05-01,Pricing,Legacy monthly subscribers move to 13.99 at renewal,"Expansion MRR spike, short-lived churn bump"
+2025-05-05,Infra,Distilled image model,Cost per image -26%
+2025-06-01,Pricing,"New price book: 70% off annual, 35% off quarterly","Annual mix jumps; MRR per sub down, cash up"
+2025-06-02,Infra,LLM batching and speech optimisations,Chat and voice unit cost down
+2025-07-15,Retention,Onboarding voice preview + memory recap (EXP05),Month-1 retention up about 5pp
+2025-07-25,Compliance,UK Online Safety Act age assurance live,UK sign-ups down; age-check costs
+2025-09-01,Ops,Live chat support launched,Channel mix shift; faster first response
+2025-09-15,Content,Candy Shorts episodic series launched,Content production cost starts
+2025-10-31,Marketing,Push & pop networks sunset (lowest LTV:CAC),"Lower volume, better cohort quality"
+2025-11-10,Unit economics,Free message cap 50 -> 30 per day (EXP06),Free-tier GPU cost down about 30%
+2025-11-17,Infra,Prefix/KV caching and video model v3,Chat and video unit cost down
+2025-12-31,Infra,A100 reserved cluster retired,LLM moves to on-demand for January
+2026-01-01,Marketing,Paid social CPM inflation and ad-account restrictions (Q1),Paid social CAC above $55
+2026-01-12,Marketing,Signature creator character campaign launched,Creator channel volume up
+2026-01-15,Payments,One-click USDC checkout (EXP07),Crypto share of new subs up
+2026-02-01,Payments,Acquirer C migration (network tokens + smart retries),Renewal declines and involuntary churn down
+2026-02-02,Infra,H100 1-yr reserved cluster (Cloud C) live,Lower GPU $/hour
+2026-03-02,Product,Live Action sessions launched,Token sink; content cost
+2026-04-01,Marketing,"Paid social budget cut 40%, reallocated to SEO & creators",Blended CAC down
+2026-06-01,Risk,First renewals of 70%-off annual cohorts begin,Annual renewal wave: watch churn Jun-26 onward
+2026-08-20,Promo,Back to School 70% OFF sale (to 13-Sep),Volume spike into September

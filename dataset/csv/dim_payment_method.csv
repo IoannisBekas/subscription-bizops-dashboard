@@ -1,0 +1,8 @@
+payment_method_id,payment_method,method_type
+PM01,Visa,Card
+PM02,Mastercard,Card
+PM03,Other card,Card
+PM04,Crypto - BTC,Crypto
+PM05,Crypto - ETH,Crypto
+PM06,Crypto - USDC,Crypto
+PM07,Crypto - LTC,Crypto

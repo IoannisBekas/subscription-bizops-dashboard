@@ -1,0 +1,9 @@
+feature_id,feature,modality,unit,tokens_per_unit,launch_date
+F01,Chat message,LLM text,message,0.0,2024-01-01
+F02,Voice message,TTS,message,0.2,2024-01-01
+F03,Voice call,Speech-to-speech,minute,3.0,2024-06-03
+F04,Image generation,Image diffusion,image,2.0,2024-01-01
+F05,Video generation,Video diffusion,clip,10.0,2024-11-04
+F06,Custom character creation,Image diffusion + LLM,character,2.0,2024-01-01
+F07,Private content (MPC) unlock,Content (no GPU),pack,30.0,2024-03-04
+F08,Live Action session,Content (no GPU),session,15.0,2026-03-02

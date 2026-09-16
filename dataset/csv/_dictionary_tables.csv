@@ -1,0 +1,36 @@
+table,grain,description,rows,columns,available_in
+fact_subscribers,subscriber,One row per paying subscriber (first payment Oct-23 to Aug-26). Oct-Dec 2023 cohorts include only those still active on 1-Jan-24; revenue columns cover 2024-01 onwards.,362430,32,CSV only
+fact_mrr_bridge_monthly,month x country x channel x plan,"MRR waterfall: opening MRR, new, win-back, expansion, contraction, FX, churn by type, closing MRR, plus subscriber counts.",14165,26,CSV + Excel
+fact_cohort_retention,cohort month x months since first payment x channel x first plan x market tier,Cohort survival and cumulative net revenue (LTV curves). Cohorts from 2024-01.,39672,13,CSV + Excel
+cohort_retention_matrix,cohort month,"Wide retention heatmap (share of cohort active at month-end, M0..M31). All channels and plans.",32,34,CSV + Excel
+cohort_ltv_matrix,cohort month,"Wide cumulative net revenue per original subscriber (USD), M0..M31.",32,34,CSV + Excel
+fact_revenue_daily,date x country x transaction type x product,"Every billing event aggregated daily: new, renewal, win-back, token packs, refunds, chargebacks. Gross, tax, net, fees.",162700,9,CSV only
+fact_revenue_monthly,month x country x transaction type x product,Monthly roll-up of fact_revenue_daily (cash / billings view).,11315,9,CSV + Excel
+fact_recognized_revenue_monthly,month x country x plan,Subscription revenue recognised straight-line over the service period (3- and 12-month plans are deferred).,1632,5,CSV + Excel
+fact_deferred_revenue,month,Closing deferred subscription revenue balance (prepaid plans not yet recognised).,32,2,CSV + Excel
+fact_payments_monthly,month x processor x payment method x payment type,"Payment operations: attempts, first-attempt declines, dunning recoveries, approvals, refunds, chargebacks, fees.",1555,13,CSV + Excel
+fact_marketing_daily,date x campaign,"Spend, impressions, clicks, free sign-ups, first payments and first-payment revenue by campaign. CRM rows carry win-backs.",25716,10,CSV + Excel
+fact_funnel_daily,date x country x device,"Acquisition funnel: sessions, UK age checks, sign-ups, activation, paywall views, checkouts, new paid subscribers.",49674,11,CSV + Excel
+fact_experiment_daily,experiment x date x variant x metric,A/B test results in long format (additive counts and sums; compute rates as metric / exposure).,2056,5,CSV + Excel
+fact_usage_daily,date x feature x user type,"Product engagement and cost to serve: active users, units, tokens consumed, GPU and content cost, latency, errors.",7450,11,CSV + Excel
+fact_gpu_daily,date x GPU cluster x workload,GPU spend by cluster and workload; sums to compute_cost_usd in fact_usage_daily.,6996,7,CSV + Excel
+fact_support_tickets,ticket,"Customer support tickets with SLA, first response, resolution, CSAT. Every refund transaction has a matching ticket.",122560,17,CSV only
+fact_headcount_monthly,month x department,"Headcount, hires, exits and fully-loaded payroll cost.",320,7,CSV + Excel
+fact_pnl_monthly,month x scenario x P&L line,"P&L in long format. Actual Jan-24 to Aug-26, Budget FY25 & FY26, Forecast Sep-Dec 26 (8+4). Costs are negative.",1260,8,CSV + Excel
+fact_kpi_monthly,month,Executive KPI scorecard: one row per month with ~50 headline metrics derived from the other tables.,32,49,CSV + Excel
+fin_model_drivers,driver,"Driver sheet for a FY2027 plan: FY25 actual, FY26 YTD actual and downside / base / upside scenario values.",19,8,CSV + Excel
+dim_date,date,Calendar 2024-01-01 to 2026-12-31 with promo events and actual / forecast flag.,1096,16,CSV + Excel
+dim_country,country,"Markets with pricing currency, VAT / sales-tax rate (prices are tax-inclusive) and tier.",17,6,CSV + Excel
+dim_channel,channel,Acquisition channels and their cost model.,10,4,CSV + Excel
+dim_campaign,campaign,"Campaigns with channel, geo target and flight dates.",34,6,CSV + Excel
+dim_plan,plan,"Subscription plans with today's prices (from candy.ai/subscriptions, Sep-2026).",3,8,CSV + Excel
+dim_price_book,price book version,Price history per plan. PB3 matches the live site; PB1 / PB2 are modelled.,3,12,CSV + Excel
+dim_token_pack,token pack,Token top-up packs (illustrative: the token store is behind login).,6,6,CSV + Excel
+dim_payment_method,payment method,"Card and crypto methods (Visa, Mastercard and crypto are accepted on the site).",7,3,CSV + Excel
+dim_processor,processor,Payment processors with fee schedule and modelled decline / recovery rates (generic names).,4,10,CSV + Excel
+dim_feature,feature,Token-consuming product features with token price per unit and launch date.,8,6,CSV + Excel
+dim_gpu_cluster,GPU cluster,"Inference clusters (generic providers) with GPU type, pricing model and hourly rate.",5,7,CSV + Excel
+dim_fx_monthly,month,Monthly average FX used to convert EUR / GBP charges to USD (approximate).,32,3,CSV + Excel
+dim_experiment,experiment,"A/B test register: hypothesis, primary metric, dates, decision.",10,8,CSV + Excel
+dim_business_events,event,"Timeline of launches, pricing changes, ops and compliance events, for annotating charts.",34,4,CSV + Excel
+dim_pnl_line,P&L line,P&L line items with section and display order.,21,4,CSV + Excel

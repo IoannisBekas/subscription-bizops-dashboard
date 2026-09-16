@@ -1,0 +1,11 @@
+channel_id,channel,channel_group,cost_model
+CH01,Affiliates,Paid - Partners,CPA per first payment
+CH02,Adult Ad Networks,Paid - Media,CPM
+CH03,Paid Social (X / Reddit),Paid - Media,CPM / CPC
+CH04,Creator Partnerships,Paid - Partners,Flat fee + rev-share
+CH05,SEO / Content,Organic,Content production
+CH06,Direct / Brand,Organic,None
+CH07,Discord & Community,Organic,Community management
+CH08,Push & Pop Networks,Paid - Media,CPM
+CH09,Crypto Ad Networks,Paid - Media,CPM
+CH10,CRM / Email Win-back,Retention,ESP + incentives

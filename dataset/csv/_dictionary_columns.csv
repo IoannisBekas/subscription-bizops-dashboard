@@ -1,0 +1,414 @@
+table,column,dtype,description
+fact_subscribers,subscriber_id,object,"Paying subscriber, joins fact_subscribers."
+fact_subscribers,first_payment_date,object,Date of first successful payment.
+fact_subscribers,cohort_month,object,Month of first payment (acquisition cohort).
+fact_subscribers,country_code,object,"Market code, joins dim_country."
+fact_subscribers,market_tier,object,Tier 1 / 2 / 3 market grouping.
+fact_subscribers,channel_id,object,"Acquisition channel, joins dim_channel."
+fact_subscribers,campaign_id,object,"Campaign, joins dim_campaign."
+fact_subscribers,device,object,"Device at sign-up (web app on mobile, desktop, tablet)."
+fact_subscribers,payment_method_id,object,"Payment method, joins dim_payment_method."
+fact_subscribers,processor_id,object,"Payment processor, joins dim_processor."
+fact_subscribers,first_plan_id,object,Plan bought at first payment.
+fact_subscribers,current_plan_id,object,Plan at last activity (current plan if active).
+fact_subscribers,first_price_per_month,float64,"Monthly-equivalent list price paid at first purchase (pricing currency, tax-inclusive)."
+fact_subscribers,acquired_on_promo,bool,True if first payment fell on a promo day (see dim_date).
+fact_subscribers,pricing_experiment_variant,object,"EXP04 arm for Apr-May 2025 sign-ups, else blank."
+fact_subscribers,status,object,Active or Churned at 31-Aug-2026.
+fact_subscribers,churn_month,object,Month of the most recent churn (blank if active).
+fact_subscribers,churn_type,object,"Voluntary, Involuntary (payment failure), Refund or Chargeback. Blank if active."
+fact_subscribers,first_churn_month,object,Month of first ever churn (differs from churn_month for win-backs).
+fact_subscribers,months_active,int16,Month-ends active since Jan-2024.
+fact_subscribers,renewals,int64,Successful renewal payments since Jan-2024.
+fact_subscribers,reactivations,int16,Number of win-backs after churn.
+fact_subscribers,token_packs_purchased,int64,Token packs bought.
+fact_subscribers,tokens_purchased,int64,Tokens bought via packs (excludes the 100 monthly included tokens).
+fact_subscribers,first_payment_net_usd,float64,Net (ex-tax) USD of the first payment; 0 for 2023 cohorts.
+fact_subscribers,subscription_net_revenue_usd,float64,"Subscription billings net of tax, refunds and chargebacks (USD, cash view)."
+fact_subscribers,token_net_revenue_usd,float64,Token pack purchases net of tax and refunds (USD).
+fact_subscribers,refunds_usd,float64,"Refunds granted (gross USD, positive)."
+fact_subscribers,chargebacks_usd,float64,"Chargebacks lost (gross USD, positive)."
+fact_subscribers,lifetime_net_revenue_usd,float64,subscription_net_revenue_usd + token_net_revenue_usd.
+fact_subscribers,current_mrr_usd,float64,"MRR at 31-Aug-2026 (USD, ex-tax); 0 if churned."
+fact_subscribers,token_spend_segment,object,"Non-buyer, or token buyers split by lifetime token spend: Light (<=P50), Medium (P50-P80), Heavy (P80-P95), Whale (>P95)."
+fact_mrr_bridge_monthly,month,object,Calendar month (YYYY-MM).
+fact_mrr_bridge_monthly,country_code,object,"Market code, joins dim_country."
+fact_mrr_bridge_monthly,channel_id,object,"Acquisition channel, joins dim_channel."
+fact_mrr_bridge_monthly,plan_id,object,"Subscription plan, joins dim_plan."
+fact_mrr_bridge_monthly,subs_start,int64,Active subscribers at previous month-end.
+fact_mrr_bridge_monthly,new_subs,int64,First-time paying subscribers in the month.
+fact_mrr_bridge_monthly,reactivated_subs,int64,Churned subscribers who paid again (win-backs).
+fact_mrr_bridge_monthly,expansion_subs,int64,Retained subs whose MRR rose (price rise or plan change).
+fact_mrr_bridge_monthly,contraction_subs,int64,"Retained subs whose MRR fell (switch to a longer, cheaper-per-month plan)."
+fact_mrr_bridge_monthly,subs_end,int64,Active subscribers at month-end.
+fact_mrr_bridge_monthly,mrr_start,float64,"Opening MRR (USD, ex-tax; 3M / 12M plans normalised to monthly)."
+fact_mrr_bridge_monthly,mrr_new,float64,MRR from new subscribers.
+fact_mrr_bridge_monthly,mrr_reactivation,float64,MRR from win-backs.
+fact_mrr_bridge_monthly,mrr_expansion,float64,MRR increase from price rises / plan changes.
+fact_mrr_bridge_monthly,mrr_contraction,float64,MRR decrease from plan changes (negative).
+fact_mrr_bridge_monthly,mrr_fx,float64,FX translation effect on retained EUR / GBP MRR.
+fact_mrr_bridge_monthly,churned_voluntary_subs,int64,Subscribers who did not renew.
+fact_mrr_bridge_monthly,mrr_churn_voluntary,float64,MRR lost to voluntary churn (negative).
+fact_mrr_bridge_monthly,churned_involuntary_subs,int64,Subscribers lost to failed renewal payments after retries.
+fact_mrr_bridge_monthly,mrr_churn_involuntary,float64,MRR lost to payment failure (negative).
+fact_mrr_bridge_monthly,churned_refund_subs,int64,Subscribers refunded and cancelled (includes same-month new-subscriber refunds).
+fact_mrr_bridge_monthly,mrr_churn_refund,float64,MRR lost to refunds (negative).
+fact_mrr_bridge_monthly,churned_chargeback_subs,int64,Subscribers cancelled after a chargeback.
+fact_mrr_bridge_monthly,mrr_churn_chargeback,float64,MRR lost to chargebacks (negative).
+fact_mrr_bridge_monthly,mrr_end,float64,Closing MRR. mrr_start + all movements = mrr_end.
+fact_mrr_bridge_monthly,mrr_net_new,float64,Sum of all MRR movements in the month.
+fact_cohort_retention,cohort_month,object,Month of first payment (acquisition cohort).
+fact_cohort_retention,months_since_first_payment,int64,0 = cohort month.
+fact_cohort_retention,calendar_month,object,Month observed (cohort_month + months since).
+fact_cohort_retention,channel_id,object,"Acquisition channel, joins dim_channel."
+fact_cohort_retention,first_plan_id,object,Plan bought at first payment.
+fact_cohort_retention,market_tier,object,Tier 1 / 2 / 3 market grouping.
+fact_cohort_retention,cohort_size,int64,Subscribers in the cohort slice.
+fact_cohort_retention,active_subscribers,int64,Cohort members active at month-end (win-backs count again).
+fact_cohort_retention,mrr_usd,float64,MRR of active cohort members at month-end (USD).
+fact_cohort_retention,net_revenue_usd,float64,"Net revenue in the month (subscriptions + tokens - refunds - chargebacks, USD)."
+fact_cohort_retention,cum_net_revenue_usd,float64,Cumulative net revenue since the cohort month (USD).
+fact_cohort_retention,retention_rate,float64,active_subscribers / cohort_size.
+fact_cohort_retention,cum_net_revenue_per_sub_usd,float64,"Cumulative net revenue per original subscriber (LTV curve, USD)."
+cohort_retention_matrix,cohort_month,object,Month of first payment (acquisition cohort).
+cohort_retention_matrix,cohort_size,int64,Subscribers in the cohort slice.
+cohort_retention_matrix,M0,float64,Value at 0 months after the cohort month.
+cohort_retention_matrix,M1,float64,Value at 1 months after the cohort month.
+cohort_retention_matrix,M2,float64,Value at 2 months after the cohort month.
+cohort_retention_matrix,M3,float64,Value at 3 months after the cohort month.
+cohort_retention_matrix,M4,float64,Value at 4 months after the cohort month.
+cohort_retention_matrix,M5,float64,Value at 5 months after the cohort month.
+cohort_retention_matrix,M6,float64,Value at 6 months after the cohort month.
+cohort_retention_matrix,M7,float64,Value at 7 months after the cohort month.
+cohort_retention_matrix,M8,float64,Value at 8 months after the cohort month.
+cohort_retention_matrix,M9,float64,Value at 9 months after the cohort month.
+cohort_retention_matrix,M10,float64,Value at 10 months after the cohort month.
+cohort_retention_matrix,M11,float64,Value at 11 months after the cohort month.
+cohort_retention_matrix,M12,float64,Value at 12 months after the cohort month.
+cohort_retention_matrix,M13,float64,Value at 13 months after the cohort month.
+cohort_retention_matrix,M14,float64,Value at 14 months after the cohort month.
+cohort_retention_matrix,M15,float64,Value at 15 months after the cohort month.
+cohort_retention_matrix,M16,float64,Value at 16 months after the cohort month.
+cohort_retention_matrix,M17,float64,Value at 17 months after the cohort month.
+cohort_retention_matrix,M18,float64,Value at 18 months after the cohort month.
+cohort_retention_matrix,M19,float64,Value at 19 months after the cohort month.
+cohort_retention_matrix,M20,float64,Value at 20 months after the cohort month.
+cohort_retention_matrix,M21,float64,Value at 21 months after the cohort month.
+cohort_retention_matrix,M22,float64,Value at 22 months after the cohort month.
+cohort_retention_matrix,M23,float64,Value at 23 months after the cohort month.
+cohort_retention_matrix,M24,float64,Value at 24 months after the cohort month.
+cohort_retention_matrix,M25,float64,Value at 25 months after the cohort month.
+cohort_retention_matrix,M26,float64,Value at 26 months after the cohort month.
+cohort_retention_matrix,M27,float64,Value at 27 months after the cohort month.
+cohort_retention_matrix,M28,float64,Value at 28 months after the cohort month.
+cohort_retention_matrix,M29,float64,Value at 29 months after the cohort month.
+cohort_retention_matrix,M30,float64,Value at 30 months after the cohort month.
+cohort_retention_matrix,M31,float64,Value at 31 months after the cohort month.
+cohort_ltv_matrix,cohort_month,object,Month of first payment (acquisition cohort).
+cohort_ltv_matrix,cohort_size,int64,Subscribers in the cohort slice.
+cohort_ltv_matrix,M0,float64,Value at 0 months after the cohort month.
+cohort_ltv_matrix,M1,float64,Value at 1 months after the cohort month.
+cohort_ltv_matrix,M2,float64,Value at 2 months after the cohort month.
+cohort_ltv_matrix,M3,float64,Value at 3 months after the cohort month.
+cohort_ltv_matrix,M4,float64,Value at 4 months after the cohort month.
+cohort_ltv_matrix,M5,float64,Value at 5 months after the cohort month.
+cohort_ltv_matrix,M6,float64,Value at 6 months after the cohort month.
+cohort_ltv_matrix,M7,float64,Value at 7 months after the cohort month.
+cohort_ltv_matrix,M8,float64,Value at 8 months after the cohort month.
+cohort_ltv_matrix,M9,float64,Value at 9 months after the cohort month.
+cohort_ltv_matrix,M10,float64,Value at 10 months after the cohort month.
+cohort_ltv_matrix,M11,float64,Value at 11 months after the cohort month.
+cohort_ltv_matrix,M12,float64,Value at 12 months after the cohort month.
+cohort_ltv_matrix,M13,float64,Value at 13 months after the cohort month.
+cohort_ltv_matrix,M14,float64,Value at 14 months after the cohort month.
+cohort_ltv_matrix,M15,float64,Value at 15 months after the cohort month.
+cohort_ltv_matrix,M16,float64,Value at 16 months after the cohort month.
+cohort_ltv_matrix,M17,float64,Value at 17 months after the cohort month.
+cohort_ltv_matrix,M18,float64,Value at 18 months after the cohort month.
+cohort_ltv_matrix,M19,float64,Value at 19 months after the cohort month.
+cohort_ltv_matrix,M20,float64,Value at 20 months after the cohort month.
+cohort_ltv_matrix,M21,float64,Value at 21 months after the cohort month.
+cohort_ltv_matrix,M22,float64,Value at 22 months after the cohort month.
+cohort_ltv_matrix,M23,float64,Value at 23 months after the cohort month.
+cohort_ltv_matrix,M24,float64,Value at 24 months after the cohort month.
+cohort_ltv_matrix,M25,float64,Value at 25 months after the cohort month.
+cohort_ltv_matrix,M26,float64,Value at 26 months after the cohort month.
+cohort_ltv_matrix,M27,float64,Value at 27 months after the cohort month.
+cohort_ltv_matrix,M28,float64,Value at 28 months after the cohort month.
+cohort_ltv_matrix,M29,float64,Value at 29 months after the cohort month.
+cohort_ltv_matrix,M30,float64,Value at 30 months after the cohort month.
+cohort_ltv_matrix,M31,float64,Value at 31 months after the cohort month.
+fact_revenue_daily,date,object,Calendar date (YYYY-MM-DD).
+fact_revenue_daily,country_code,object,"Market code, joins dim_country."
+fact_revenue_daily,txn_type,object,"New subscription, Renewal, Reactivation, Token pack, Refund - subscription, Refund - token pack, Chargeback."
+fact_revenue_daily,product_id,object,Plan id (P1M / P3M / P12M) or token pack id (TP...).
+fact_revenue_daily,transactions,int64,Number of transactions.
+fact_revenue_daily,gross_usd,float64,Amount charged incl. tax (USD; negative for refunds / chargebacks).
+fact_revenue_daily,tax_usd,float64,VAT / sales tax included in gross.
+fact_revenue_daily,net_usd,float64,Revenue ex-tax (USD).
+fact_revenue_daily,processing_fees_usd,float64,"Processor fees incl. chargeback fees (USD, cost)."
+fact_revenue_monthly,month,object,Calendar month (YYYY-MM).
+fact_revenue_monthly,country_code,object,"Market code, joins dim_country."
+fact_revenue_monthly,txn_type,object,"New subscription, Renewal, Reactivation, Token pack, Refund - subscription, Refund - token pack, Chargeback."
+fact_revenue_monthly,product_id,object,Plan id (P1M / P3M / P12M) or token pack id (TP...).
+fact_revenue_monthly,transactions,int64,Number of transactions.
+fact_revenue_monthly,gross_usd,float64,Amount charged incl. tax (USD; negative for refunds / chargebacks).
+fact_revenue_monthly,tax_usd,float64,VAT / sales tax included in gross.
+fact_revenue_monthly,net_usd,float64,Revenue ex-tax (USD).
+fact_revenue_monthly,processing_fees_usd,float64,"Processor fees incl. chargeback fees (USD, cost)."
+fact_recognized_revenue_monthly,month,object,Calendar month (YYYY-MM).
+fact_recognized_revenue_monthly,country_code,object,"Market code, joins dim_country."
+fact_recognized_revenue_monthly,plan_id,object,"Subscription plan, joins dim_plan."
+fact_recognized_revenue_monthly,subscription_revenue_recognized_usd,float64,Subscription revenue recognised in the month (USD).
+fact_recognized_revenue_monthly,refund_chargeback_reversals_usd,float64,Reversal of recognised revenue for refunds and chargebacks (negative).
+fact_deferred_revenue,month,object,Calendar month (YYYY-MM).
+fact_deferred_revenue,deferred_revenue_closing_usd,float64,Prepaid subscription revenue not yet recognised at month-end (USD).
+fact_payments_monthly,month,object,Calendar month (YYYY-MM).
+fact_payments_monthly,processor_id,object,"Payment processor, joins dim_processor."
+fact_payments_monthly,payment_method_id,object,"Payment method, joins dim_payment_method."
+fact_payments_monthly,payment_type,object,"Initial (new + win-back), Renewal, Token pack, Refund, Chargeback."
+fact_payments_monthly,attempts,int64,Payment attempts (0 for refund / chargeback rows).
+fact_payments_monthly,declined_first_attempt,int64,Attempts declined on first try.
+fact_payments_monthly,recovered_by_retry,int64,Declines later recovered by dunning retries.
+fact_payments_monthly,failed_final,int64,Declines never recovered (renewals: involuntary churn).
+fact_payments_monthly,approved,int64,Successful payments.
+fact_payments_monthly,approval_rate,float64,approved / attempts.
+fact_payments_monthly,transactions,int64,Number of transactions.
+fact_payments_monthly,amount_gross_usd,float64,Gross amount (USD; negative for refunds and chargebacks).
+fact_payments_monthly,processing_fees_usd,float64,"Processor fees incl. chargeback fees (USD, cost)."
+fact_marketing_daily,date,object,Calendar date (YYYY-MM-DD).
+fact_marketing_daily,campaign_id,object,"Campaign, joins dim_campaign."
+fact_marketing_daily,channel_id,object,"Acquisition channel, joins dim_channel."
+fact_marketing_daily,spend_usd,float64,Media / partner / content spend (USD).
+fact_marketing_daily,impressions,float64,"Ad impressions (blank where not tracked: affiliates, direct, community; CRM = messages sent)."
+fact_marketing_daily,clicks,float64,Clicks / landing sessions (CRM = opens).
+fact_marketing_daily,free_signups,int64,Free accounts created.
+fact_marketing_daily,new_paid_subscribers,int64,First payments attributed (joins to fact_subscribers).
+fact_marketing_daily,reactivated_subscribers,int64,Win-backs attributed (CRM campaigns only).
+fact_marketing_daily,first_payment_net_revenue_usd,float64,Net USD of those first payments.
+fact_funnel_daily,date,object,Calendar date (YYYY-MM-DD).
+fact_funnel_daily,country_code,object,"Market code, joins dim_country."
+fact_funnel_daily,device,object,"Device at sign-up (web app on mobile, desktop, tablet)."
+fact_funnel_daily,sessions,int64,Website sessions.
+fact_funnel_daily,age_checks_started,int64,"Age-assurance checks started (UK only, from 25-Jul-2025)."
+fact_funnel_daily,age_checks_passed,int64,Age-assurance checks passed.
+fact_funnel_daily,free_signups,int64,Free accounts created.
+fact_funnel_daily,activated_users,int64,Sign-ups sending at least 5 messages in 24 hours.
+fact_funnel_daily,paywall_viewers,int64,Sign-ups who saw the paywall.
+fact_funnel_daily,checkout_starts,int64,Users who started checkout.
+fact_funnel_daily,new_paid_subscribers,int64,First payments attributed (joins to fact_subscribers).
+fact_experiment_daily,experiment_id,object,"Experiment, joins dim_experiment."
+fact_experiment_daily,date,object,Calendar date (YYYY-MM-DD).
+fact_experiment_daily,variant,object,Control or Treatment.
+fact_experiment_daily,metric,object,Metric name (counts or sums; see dim_experiment.primary_metric).
+fact_experiment_daily,value,float64,Metric value for the day and arm.
+fact_usage_daily,date,object,Calendar date (YYYY-MM-DD).
+fact_usage_daily,feature_id,object,"Product feature, joins dim_feature."
+fact_usage_daily,user_type,object,Premium (paying) or Free.
+fact_usage_daily,active_users,int64,Users who used the feature that day.
+fact_usage_daily,units,int64,"Feature units (messages, minutes, images, clips, characters, packs, sessions)."
+fact_usage_daily,tokens_consumed,int64,Tokens spent (chat is unlimited for Premium: 0).
+fact_usage_daily,compute_cost_usd,float64,GPU inference cost (USD).
+fact_usage_daily,content_cost_usd,float64,Creator / content cost for MPC packs and Live Action (USD).
+fact_usage_daily,p95_latency_ms,float64,95th percentile latency (ms).
+fact_usage_daily,error_rate,float64,Share of requests failing.
+fact_usage_daily,cache_hit_rate,float64,Share of chat tokens served from prefix / KV cache.
+fact_gpu_daily,date,object,Calendar date (YYYY-MM-DD).
+fact_gpu_daily,cluster_id,object,"GPU cluster, joins dim_gpu_cluster."
+fact_gpu_daily,workload,object,"LLM chat, Speech, Image or Video."
+fact_gpu_daily,cost_usd,float64,GPU cost (USD).
+fact_gpu_daily,units_served,int64,Feature units served on the cluster.
+fact_gpu_daily,gpu_hours,float64,GPU hours billed.
+fact_gpu_daily,avg_utilization,float64,Average GPU utilisation.
+fact_support_tickets,ticket_id,object,Ticket id.
+fact_support_tickets,created_at,datetime64[s],Ticket creation timestamp (UTC).
+fact_support_tickets,subscriber_id,object,"Paying subscriber, joins fact_subscribers."
+fact_support_tickets,user_type,object,Premium (paying) or Free.
+fact_support_tickets,country_code,object,"Market code, joins dim_country."
+fact_support_tickets,contact_channel,object,"Email, Web form or Live chat (from Sep-2025)."
+fact_support_tickets,category,object,Ticket category.
+fact_support_tickets,priority,object,"Urgent, High, Normal, Low."
+fact_support_tickets,assigned_team,object,Team handling the ticket.
+fact_support_tickets,sla_target_hours,float64,First-response SLA target (hours).
+fact_support_tickets,first_response_hours,float64,Hours to first agent response.
+fact_support_tickets,resolution_hours,float64,Hours to resolution.
+fact_support_tickets,sla_met,bool,first_response_hours <= sla_target_hours.
+fact_support_tickets,reopened,bool,Ticket reopened after resolution.
+fact_support_tickets,resolution,object,Outcome.
+fact_support_tickets,refund_amount_usd,float64,"Refund granted (gross USD), matches fact_revenue_daily refunds."
+fact_support_tickets,csat_score,float64,1-5 survey score (blank if no response).
+fact_headcount_monthly,month,object,Calendar month (YYYY-MM).
+fact_headcount_monthly,department,object,Department.
+fact_headcount_monthly,cost_group,object,"R&D, Sales & Marketing, Support & Trust, G&A."
+fact_headcount_monthly,headcount_eom,int64,FTEs at month-end.
+fact_headcount_monthly,hires,int64,New joiners in the month.
+fact_headcount_monthly,exits,int64,Leavers in the month.
+fact_headcount_monthly,fully_loaded_cost_usd,float64,Salary + taxes + benefits + contractors (USD).
+fact_pnl_monthly,month,object,Calendar month (YYYY-MM).
+fact_pnl_monthly,scenario,object,"Actual, Budget or Forecast."
+fact_pnl_monthly,line_id,object,"P&L line, joins dim_pnl_line."
+fact_pnl_monthly,line_item,object,P&L line.
+fact_pnl_monthly,section,object,"Revenue, COGS, Opex - S&M / R&D / G&A."
+fact_pnl_monthly,amount_usd,float64,"Amount (USD). Revenue positive, costs negative: sum a section for its subtotal."
+fact_pnl_monthly,year,int64,Calendar year.
+fact_pnl_monthly,month_num,int64,Month number 1-12.
+fact_kpi_monthly,month,object,Calendar month (YYYY-MM).
+fact_kpi_monthly,active_subscribers_eom,float64,Paying subscribers at month-end.
+fact_kpi_monthly,new_subscribers,float64,First-time paying subscribers.
+fact_kpi_monthly,reactivated_subscribers,float64,Win-backs attributed (CRM campaigns only).
+fact_kpi_monthly,churned_subscribers,float64,"All churn (voluntary, involuntary, refund, chargeback)."
+fact_kpi_monthly,voluntary_churn_subs,float64,Did not renew.
+fact_kpi_monthly,involuntary_churn_subs,float64,Lost to failed payments.
+fact_kpi_monthly,monthly_churn_rate,float64,churned_subscribers / opening subscribers (includes first-month refunds).
+fact_kpi_monthly,mrr_eom_usd,float64,"Month-end MRR (USD, ex-tax)."
+fact_kpi_monthly,net_new_mrr_usd,float64,Change in MRR in the month.
+fact_kpi_monthly,arr_eom_usd,float64,mrr_eom_usd x 12.
+fact_kpi_monthly,subscription_revenue_usd,float64,Recognised subscription revenue.
+fact_kpi_monthly,token_revenue_usd,float64,Token pack revenue.
+fact_kpi_monthly,refunds_chargebacks_usd,float64,Refunds and chargebacks (negative).
+fact_kpi_monthly,net_revenue_usd,float64,"Net revenue in the month (subscriptions + tokens - refunds - chargebacks, USD)."
+fact_kpi_monthly,token_share_of_revenue,float64,Token revenue / (subscription + token revenue).
+fact_kpi_monthly,subscription_billings_usd,float64,Cash billed for subscriptions (net of tax).
+fact_kpi_monthly,deferred_revenue_eom_usd,float64,Deferred revenue balance.
+fact_kpi_monthly,gross_profit_usd,float64,Net revenue - COGS.
+fact_kpi_monthly,gross_margin,float64,Gross profit / net revenue.
+fact_kpi_monthly,total_opex_usd,float64,Operating expenses (positive).
+fact_kpi_monthly,ebitda_usd,float64,Gross profit - opex.
+fact_kpi_monthly,ebitda_margin,float64,EBITDA / net revenue.
+fact_kpi_monthly,acquisition_spend_usd,float64,Spend on acquisition channels (excludes CRM win-back).
+fact_kpi_monthly,blended_cac_usd,float64,Acquisition spend / all new subscribers (incl. organic).
+fact_kpi_monthly,paid_cac_usd,float64,Paid-channel spend / paid-channel new subscribers.
+fact_kpi_monthly,arpu_usd,float64,Net revenue / average active subscribers.
+fact_kpi_monthly,token_buyers,float64,Unique subscribers buying tokens in the month.
+fact_kpi_monthly,token_attach_rate,float64,Token buyers / average active subscribers.
+fact_kpi_monthly,token_arppu_usd,float64,Token revenue per token buyer.
+fact_kpi_monthly,annual_plan_share_of_actives,float64,Share of active subscribers on the 12-month plan.
+fact_kpi_monthly,free_signups,float64,Free accounts created.
+fact_kpi_monthly,signup_to_paid_cvr,float64,New subscribers / free sign-ups in the month.
+fact_kpi_monthly,m1_retention_prior_cohort,float64,Share of last month's cohort still active one month later.
+fact_kpi_monthly,gpu_cost_usd,float64,GPU inference cost.
+fact_kpi_monthly,gpu_cost_per_active_sub_usd,float64,GPU cost / average active subscribers (includes free-tier load).
+fact_kpi_monthly,gpu_cost_pct_revenue,float64,GPU cost / net revenue.
+fact_kpi_monthly,free_tier_compute_cost_usd,float64,GPU cost of free users.
+fact_kpi_monthly,chat_messages_m,float64,Chat messages (millions).
+fact_kpi_monthly,images_generated_k,float64,Images generated (thousands).
+fact_kpi_monthly,videos_generated_k,float64,Video clips generated (thousands).
+fact_kpi_monthly,support_tickets,float64,Tickets created.
+fact_kpi_monthly,tickets_per_1k_subs,float64,"Tickets per 1,000 average active subscribers."
+fact_kpi_monthly,sla_met_rate,float64,Share of tickets meeting first-response SLA.
+fact_kpi_monthly,avg_csat,float64,Average CSAT (1-5).
+fact_kpi_monthly,renewal_approval_rate,float64,Renewal payments approved after retries / attempts.
+fact_kpi_monthly,card_chargeback_ratio,float64,Card chargebacks / approved card payments in the month.
+fact_kpi_monthly,headcount_eom,float64,FTEs at month-end.
+fact_kpi_monthly,annualised_revenue_per_fte_usd,float64,Net revenue x 12 / headcount.
+fin_model_drivers,driver,object,Planning driver.
+fin_model_drivers,unit,object,Unit of the driver.
+fin_model_drivers,fy2025_actual,float64,FY2025 actual (average or total as per unit).
+fin_model_drivers,fy2026_ytd_actual,float64,Jan-Aug 2026 actual.
+fin_model_drivers,fy2027_downside,float64,FY2027 downside scenario.
+fin_model_drivers,fy2027_base,float64,FY2027 base case.
+fin_model_drivers,fy2027_upside,float64,FY2027 upside scenario.
+fin_model_drivers,notes,object,How the value is defined / used.
+dim_date,date,object,Calendar date (YYYY-MM-DD).
+dim_date,year,int32,Calendar year.
+dim_date,quarter,object,Q1-Q4.
+dim_date,year_quarter,object,YYYY-Qn.
+dim_date,month,object,Calendar month (YYYY-MM).
+dim_date,month_name,object,Short month name.
+dim_date,iso_week,int64,ISO week number.
+dim_date,week_start,object,Monday of the week.
+dim_date,weekday,object,Day name.
+dim_date,is_weekend,bool,Saturday or Sunday.
+dim_date,day_of_month,int32,Day number.
+dim_date,days_in_month,int32,Days in the month.
+dim_date,promo_event,object,Sale running that day (blank if none).
+dim_date,promo_volume_multiplier,float64,Modelled uplift in new subscribers on promo days.
+dim_date,is_actual,bool,True up to 31-Aug-2026.
+dim_date,data_scenario,object,Actual or Forecast period.
+dim_country,country_code,object,"Market code, joins dim_country."
+dim_country,country,object,Country name.
+dim_country,region,object,Region.
+dim_country,market_tier,object,Tier 1 / 2 / 3 market grouping.
+dim_country,pricing_currency,object,Currency the customer is charged in.
+dim_country,tax_rate,float64,VAT / sales tax rate included in prices.
+dim_channel,channel_id,object,"Acquisition channel, joins dim_channel."
+dim_channel,channel,object,Channel name.
+dim_channel,channel_group,object,"Paid - Media, Paid - Partners, Organic, Retention."
+dim_channel,cost_model,object,How the channel is paid for.
+dim_campaign,campaign_id,object,"Campaign, joins dim_campaign."
+dim_campaign,channel_id,object,"Acquisition channel, joins dim_channel."
+dim_campaign,campaign_name,object,Campaign name.
+dim_campaign,geo_target,object,Targeted geography.
+dim_campaign,launch_month,object,First month live.
+dim_campaign,end_month,object,Last month live (blank = live).
+dim_plan,plan_id,object,"Subscription plan, joins dim_plan."
+dim_plan,plan_name,object,Plan name as on the site.
+dim_plan,billing_period_months,int64,Months per billing cycle.
+dim_plan,current_price_per_month,float64,Price per month today (USD / EUR / GBP nominal).
+dim_plan,current_billed_amount,float64,Amount charged per cycle today.
+dim_plan,list_price_per_month,float64,Undiscounted monthly list price.
+dim_plan,current_discount,float64,Discount vs monthly list.
+dim_plan,tokens_per_month,int64,Tokens included per month with Premium.
+dim_price_book,price_book_id,object,Price book version.
+dim_price_book,valid_from,object,First day valid.
+dim_price_book,valid_to,object,Last day valid (blank = current).
+dim_price_book,p1m_per_month,float64,1-month plan price per month.
+dim_price_book,p3m_per_month,float64,3-month plan price per month.
+dim_price_book,p12m_per_month,float64,12-month plan price per month.
+dim_price_book,p1m_billed,float64,1-month plan amount per charge.
+dim_price_book,p1m_discount_vs_monthly,float64,Discount vs 1-month price.
+dim_price_book,p3m_billed,float64,3-month plan amount per charge.
+dim_price_book,p3m_discount_vs_monthly,float64,Discount vs 1-month price.
+dim_price_book,p12m_billed,float64,12-month plan amount per charge.
+dim_price_book,p12m_discount_vs_monthly,float64,Discount vs 1-month price.
+dim_token_pack,pack_id,object,Token pack id.
+dim_token_pack,tokens,int64,Tokens in pack.
+dim_token_pack,price,float64,"Pack price (nominal, tax-inclusive)."
+dim_token_pack,available_from,object,First day on sale.
+dim_token_pack,price_per_100_tokens,float64,Price per 100 tokens.
+dim_token_pack,discount_vs_smallest,float64,Per-token discount vs the 100-token pack.
+dim_payment_method,payment_method_id,object,"Payment method, joins dim_payment_method."
+dim_payment_method,payment_method,object,Payment method.
+dim_payment_method,method_type,object,Card or Crypto.
+dim_processor,processor_id,object,"Payment processor, joins dim_processor."
+dim_processor,processor,object,Processor (generic name).
+dim_processor,method_type,object,Card or Crypto.
+dim_processor,live_from,object,First month live.
+dim_processor,fee_pct,float64,Percentage fee per charge.
+dim_processor,fee_fixed_usd,float64,Fixed fee per charge (USD).
+dim_processor,chargeback_fee_usd,float64,Fee per chargeback (USD).
+dim_processor,initial_decline_rate,float64,Modelled first-attempt decline rate on initial payments.
+dim_processor,renewal_decline_rate,float64,Modelled first-attempt decline rate on renewals.
+dim_processor,dunning_recovery_rate,float64,Share of renewal declines recovered by retries.
+dim_feature,feature_id,object,"Product feature, joins dim_feature."
+dim_feature,feature,object,Feature name.
+dim_feature,modality,object,Model type serving the feature.
+dim_feature,unit,object,Unit of the driver.
+dim_feature,tokens_per_unit,float64,Token price per unit.
+dim_feature,launch_date,object,Launch date.
+dim_gpu_cluster,cluster_id,object,"GPU cluster, joins dim_gpu_cluster."
+dim_gpu_cluster,provider,object,Cloud provider (generic).
+dim_gpu_cluster,gpu_type,object,GPU model.
+dim_gpu_cluster,pricing_model,object,"On-demand, reserved or spot."
+dim_gpu_cluster,hourly_rate_usd,float64,USD per GPU hour.
+dim_gpu_cluster,live_from,object,First month live.
+dim_gpu_cluster,retired_on,object,Retirement date (blank = live).
+dim_fx_monthly,month,object,Calendar month (YYYY-MM).
+dim_fx_monthly,usd_per_eur,float64,USD per 1 EUR (monthly average).
+dim_fx_monthly,usd_per_gbp,float64,USD per 1 GBP (monthly average).
+dim_experiment,experiment_id,object,"Experiment, joins dim_experiment."
+dim_experiment,experiment_name,object,Experiment.
+dim_experiment,area,object,Area.
+dim_experiment,start_date,object,Start date.
+dim_experiment,end_date,object,End date.
+dim_experiment,decision,object,Outcome / decision.
+dim_experiment,primary_metric,object,Primary metric (numerator / denominator from fact_experiment_daily).
+dim_experiment,hypothesis,object,Hypothesis.
+dim_business_events,event_date,object,Date.
+dim_business_events,category,object,Ticket category.
+dim_business_events,event,object,Event.
+dim_business_events,expected_impact,object,Metrics expected to move.
+dim_pnl_line,line_id,object,"P&L line, joins dim_pnl_line."
+dim_pnl_line,line_item,object,P&L line.
+dim_pnl_line,section,object,"Revenue, COGS, Opex - S&M / R&D / G&A."
+dim_pnl_line,sort_order,int64,Display order.

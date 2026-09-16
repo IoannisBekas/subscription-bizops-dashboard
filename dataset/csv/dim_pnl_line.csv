@@ -1,0 +1,22 @@
+line_id,line_item,section,sort_order
+R1,Subscription revenue (recognised),Revenue,1
+R2,Token pack revenue,Revenue,2
+R3,Refunds & chargebacks,Revenue,3
+C1,GPU inference,COGS,4
+C2,"Hosting, storage & CDN",COGS,5
+C3,Payment processing fees,COGS,6
+C4,Chargeback fees,COGS,7
+C5,Content & creator costs,COGS,8
+C6,Third-party AI APIs & licences,COGS,9
+O1,Performance marketing (media),Opex - S&M,10
+O2,Affiliate & creator partnerships,Opex - S&M,11
+O3,"SEO, community & CRM",Opex - S&M,12
+O4,Brand & content marketing,Opex - S&M,13
+O5,Payroll - R&D,Opex - R&D,14
+O6,Payroll - Support & Trust,Opex - G&A,15
+O7,Payroll - Sales & Marketing,Opex - S&M,16
+O8,Payroll - G&A,Opex - G&A,17
+O9,Outsourced support (BPO),Opex - G&A,18
+O10,Age assurance & compliance,Opex - G&A,19
+O11,Software & tools,Opex - G&A,20
+O12,"Office, travel & other G&A",Opex - G&A,21
