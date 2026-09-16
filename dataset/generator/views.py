@@ -89,7 +89,7 @@ def pnl_view(wb, pnl):
     d = pnl[pnl.scenario.isin(["Actual", "Forecast"])]
     months = sorted(d.month.unique())
     piv = d.pivot_table(index="line_id", columns="month", values="amount_usd", aggfunc="sum")
-    ws.write(0, 0, "Candy AI - Monthly P&L (USD)", F["title"])
+    ws.write(0, 0, "Monthly P&L (USD) - synthetic subscription business", F["title"])
     ws.write(1, 0, "Actual Jan-2024 to Aug-2026 | Forecast Sep-Dec 2026 (8+4). Blue = data from fact_pnl_monthly, black = formulas. Costs negative.", F["note"])
     ws.write(3, 0, "Line item", F["hdr"])
     ws.write(3, 1, "Section", F["hdr"])
@@ -124,7 +124,7 @@ def pnl_view(wb, pnl):
 
 def bva_view(wb, pnl):
     ws, F = wb.add_worksheet("Budget_vs_Actual"), _fmts(wb)
-    ws.write(0, 0, "Candy AI - Budget vs Actual (USD)", F["title"])
+    ws.write(0, 0, "Budget vs Actual (USD) - synthetic subscription business", F["title"])
     ws.write(1, 0, "SUMIFS over fact_pnl_monthly. Variance = Actual - Budget: positive is favourable (costs are negative).", F["note"])
     heads = ["Line", "Section", "FY25 Actual", "FY25 Budget", "Var", "Var %", "FY26 YTD Actual (Jan-Aug)", "FY26 YTD Budget",
              "Var", "Var %", "FY26 Outlook (Act + Fcst)", "FY26 Budget", "Var", "Var %"]
@@ -193,17 +193,17 @@ def headline(T):
 
 def readme_lines(T, tables):
     h = headline(T)
-    L_ = [("title", "Candy AI - Strategy & BizOps dataset (synthetic)"),
-          ("note", "Modelled on candy.ai's public business model as checked on 15-Sep-2026. All volumes, costs and outcomes are simulated: this is not real company data."),
+    L_ = [("title", "Strategy & BizOps dataset for a subscription business (synthetic)"),
+          ("note", "A modelled consumer subscription business in the AI-companion category. Price points follow a live site checked on 15-Sep-2026; all volumes, costs and outcomes are simulated. This is not any company's reported data."),
           ("", ""), ("h2", "At a glance"),
           ("", f"Actuals Jan-2024 to Aug-2026 (daily / monthly), Budget FY2025 & FY2026, Forecast Sep-Dec 2026. Reporting currency USD; revenue is ex-VAT."),
           ("", f"{h['subs']:,} paying subscribers, {h['tx']:,} billing transactions, {h['tickets']:,} support tickets."),
           ("", f"Aug-2026: {h['active']:,} active subscribers, subscription ARR ${h['arr']:.1f}M, net-revenue run-rate ${h['run']:.1f}M."),
           ("", f"Net revenue: FY2024 ${h['rev24']:.1f}M, FY2025 ${h['rev25']:.1f}M, Jan-Aug 2026 ${h['rev26']:.1f}M."),
-          ("", ""), ("h2", "What comes from the live site vs what is modelled"),
-          ("", "From candy.ai: 1 / 3 / 12-month plans at 13.99 / 8.99 / 3.99 per month (list 13.99; 35% and 70% off), 100 tokens a month with Premium, token top-ups, "
+          ("", ""), ("h2", "What is taken from the category vs what is modelled"),
+          ("", "Taken from live pricing pages: 1 / 3 / 12-month plans at 13.99 / 8.99 / 3.99 per month (list 13.99; 35% and 70% off), 100 tokens a month with Premium, token top-ups, "
                "token uses (images, voice messages, voice calls, private content packs, video, custom characters), Visa / Mastercard / crypto (BTC, ETH, USDC, LTC), "
-               "free trial tier, French site, charges shown as EverAI (Malta)."),
+               "a free tier and a localised French site."),
           ("", "Modelled: earlier price books, token pack prices (store is behind login), traffic, conversion, retention, channels and campaigns, processors "
                "(generic names), GPU providers (generic), costs, headcount, budgets and experiments."),
           ("", ""), ("h2", "How the tables fit together"),

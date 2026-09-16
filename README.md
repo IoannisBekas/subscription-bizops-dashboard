@@ -1,8 +1,10 @@
-# Candy AI — BizOps dataset and briefing dashboard
+# Subscription BizOps dataset and briefing dashboard
+
+_Created by BEKAS Ioannis — a strategy & business-operations portfolio piece._
 
 A synthetic strategy-and-operations dataset for a consumer AI-companion subscription business, and an
-Economist-style dashboard built on top of it. Everything is generated from a seeded simulation: **these
-are not Candy AI's real numbers.**
+Economist-style dashboard built on top of it. Everything is generated from a seeded simulation: **no real
+company's figures appear here.**
 
 ![Dashboard preview](docs/preview.png)
 
@@ -15,10 +17,10 @@ are not Candy AI's real numbers.**
 | **Period** | Actuals Jan 2024 – Aug 2026, FY2025 and FY2026 budgets, a Sep–Dec 2026 forecast. USD, net of VAT. |
 | **Scale** | 362k paying subscribers, 1.05m billing transactions, $13.2m subscription ARR at Aug 2026. |
 
-What follows the live site (candy.ai, observed September 2026): the 1/3/12-month plans at 13.99 / 8.99 /
+Taken from live category pricing (observed September 2026): the 1/3/12-month plans at 13.99 / 8.99 /
 3.99 a month, 100 included tokens, token top-ups, what tokens are spent on, card and crypto payment
-methods, the French site, and EverAI (Malta) as the merchant. Everything else — traffic, conversion,
-retention, costs, processors, budgets, experiments — is modelled.
+methods, and a localised French site. Everything else — traffic, conversion, retention, costs, processors,
+budgets, experiments — is modelled.
 
 ## Run it
 
@@ -49,7 +51,7 @@ assets/                 economist.css, charts.js (SVG toolkit), dashboard.js (pa
 data/                   dashboard.json + dashboard.js (aggregates, ~75 KB)
 tools/                  build_dashboard_data.py
 dataset/
-  Candy_AI_BizOps_Dataset.xlsx   37 sheets: data, dictionary, live P&L and budget-vs-actual views
+  Subscription_BizOps_Dataset.xlsx  37 sheets: data, dictionary, live P&L and budget-vs-actual views
   csv/                           the 35 tables + data dictionary
   generator/                     the simulation (config, simulate, marts, finance, export)
   README.md                      dataset documentation

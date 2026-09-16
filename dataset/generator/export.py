@@ -7,7 +7,7 @@ import views
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV_DIR = os.path.join(ROOT, "csv")
-XLSX = os.path.join(ROOT, "Candy_AI_BizOps_Dataset.xlsx")
+XLSX = os.path.join(ROOT, "Subscription_BizOps_Dataset.xlsx")
 CSV_ONLY = {"fact_subscribers", "fact_revenue_daily", "fact_support_tickets"}
 FIRST = ["fact_kpi_monthly", "fin_model_drivers", "fact_pnl_monthly", "fact_mrr_bridge_monthly", "fact_cohort_retention",
          "cohort_retention_matrix", "cohort_ltv_matrix"]

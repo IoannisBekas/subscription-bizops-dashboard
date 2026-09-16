@@ -1,9 +1,10 @@
-"""Static dimensions and business parameters for the synthetic Candy AI dataset.
+"""Static dimensions and business parameters for the synthetic subscription dataset.
 
-Public facts (checked on candy.ai, Sep 2026): Monthly / 3-Month / 12-Month plans at
+Price points are taken from a live AI-companion subscription site (Sep 2026):
+Monthly / 3-Month / 12-Month plans at
 13.99 / 8.99 / 3.99 per month (list 13.99, 35% and 70% off), 100 tokens per month
 with Premium, token top-ups, Visa / Mastercard / crypto (BTC, ETH, USDC, LTC),
-French localisation, EverAI Limited (Malta). Everything else is modelled.
+a localised French site, an EU merchant of record. Everything else is modelled.
 """
 import numpy as np
 import pandas as pd

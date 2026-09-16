@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Candy AI: a business review</title>
-<meta name="description" content="An Economist-style dashboard of Candy AI's subscription economics, built on a synthetic BizOps dataset: MRR, cohorts, CAC and payback, compute cost and budget variance.">
+<title>Subscription economics: a business review</title>
+<meta name="description" content="An Economist-style dashboard of a consumer subscription business, built on a synthetic BizOps dataset: MRR, cohorts, CAC and payback, compute cost and budget variance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
@@ -14,19 +14,34 @@
 
 <div class="topbar">
   <div class="inner">
-    <span>Candy AI &middot; Strategy &amp; BizOps briefing</span>
+    <span>Strategy &amp; BizOps briefing</span>
     <span class="right">Synthetic data &middot; September 2026</span>
   </div>
 </div>
 
 <header class="masthead">
   <h1>Artificial intimacy, real economics</h1>
-  <p class="standfirst">A 70%-off annual plan, cheaper inference and nine acquisition channels took Candy AI from
-    launch to a $22m revenue run-rate in 32 months. The next test is whether those annual subscribers renew.</p>
-  <p class="byline">A modelled business review &middot; data to August 2026</p>
-  <p class="badge"><b>These numbers are simulated.</b> Plans, prices, token rules and payment methods follow
-    candy.ai as observed in September 2026; volumes, retention, costs and outcomes are modelled. Nothing here is
-    Candy AI's reported data.</p>
+  <p class="standfirst">A 70%-off annual plan, cheaper inference and nine acquisition channels took an
+    AI-companion subscription business from launch to a $22m revenue run-rate in 32 months. The next test is
+    whether those annual subscribers renew.</p>
+
+  <div class="byline">
+    <a class="byline-link" href="https://www.linkedin.com/in/ioannisbekas/" target="_blank" rel="noopener noreferrer"
+       aria-label="Ioannis Bekas on LinkedIn">
+      <img class="byline-photo" src="assets/author.jpg" alt="Ioannis Bekas" width="84" height="84">
+    </a>
+    <div>
+      <p class="byline-name">
+        <a class="byline-link" href="https://www.linkedin.com/in/ioannisbekas/" target="_blank" rel="noopener noreferrer">Created by BEKAS Ioannis</a>
+      </p>
+      <p class="byline-meta">Strategy &amp; business operations analytics &middot; data to August 2026</p>
+    </div>
+  </div>
+
+  <p class="badge"><b>These numbers are simulated.</b> The dataset models a consumer subscription business in
+    the AI-companion category. Plan structure, token rules and payment methods follow live category pricing
+    observed in September 2026; volumes, retention, costs and outcomes are modelled. No company's reported
+    figures appear here.</p>
 </header>
 
 <nav class="nav" aria-label="Sections">
@@ -52,16 +67,17 @@
 <main></main>
 
 <footer>
-  <p><b>About this dashboard.</b> Built from a synthetic Candy AI BizOps dataset: 35 linked tables covering
-    January 2024 to August 2026, with FY2025 and FY2026 budgets and a September&ndash;December 2026 forecast.
-    Every chart names the table it comes from. Revenue is net of VAT and reported in dollars; EUR and GBP
-    charges are converted at the month's average rate.</p>
+  <p><b>About this dashboard.</b> Built from a synthetic BizOps dataset for a consumer subscription business:
+    35 linked tables covering January 2024 to August 2026, with FY2025 and FY2026 budgets and a
+    September&ndash;December 2026 forecast. Every chart names the table it comes from. Revenue is net of VAT
+    and reported in dollars; EUR and GBP charges are converted at the month's average rate.</p>
   <p><b>Method.</b> Subscribers are simulated one by one - plan, country, channel, payment method, renewals,
     churn, win-backs and token purchases - and the tables are aggregated from those events, so they reconcile:
     the MRR bridge closes to the cent and subscriber counts match the marketing and funnel tables.
     Lifetime value is cumulative net revenue per original cohort member; payback applies the trailing gross
     margin to that curve and is a cash measure, because annual plans are billed up front.</p>
-  <p>Data generated <span id="generated"></span>. Charts hand-drawn in SVG - no chart library.</p>
+  <p>Created by Ioannis Bekas. Data generated <span id="generated"></span>. Charts hand-drawn in SVG - no
+    chart library.</p>
 </footer>
 
 <script src="data/dashboard.js"></script>

@@ -23,7 +23,7 @@ dim_date,date,Calendar 2024-01-01 to 2026-12-31 with promo events and actual / f
 dim_country,country,"Markets with pricing currency, VAT / sales-tax rate (prices are tax-inclusive) and tier.",17,6,CSV + Excel
 dim_channel,channel,Acquisition channels and their cost model.,10,4,CSV + Excel
 dim_campaign,campaign,"Campaigns with channel, geo target and flight dates.",34,6,CSV + Excel
-dim_plan,plan,"Subscription plans with today's prices (from candy.ai/subscriptions, Sep-2026).",3,8,CSV + Excel
+dim_plan,plan,"Subscription plans with current prices (category benchmark, Sep-2026).",3,8,CSV + Excel
 dim_price_book,price book version,Price history per plan. PB3 matches the live site; PB1 / PB2 are modelled.,3,12,CSV + Excel
 dim_token_pack,token pack,Token top-up packs (illustrative: the token store is behind login).,6,6,CSV + Excel
 dim_payment_method,payment method,"Card and crypto methods (Visa, Mastercard and crypto are accepted on the site).",7,3,CSV + Excel

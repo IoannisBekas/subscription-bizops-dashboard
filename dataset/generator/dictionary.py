@@ -25,7 +25,7 @@ TABLES = {  # table: (grain, description)
     "dim_country": ("country", "Markets with pricing currency, VAT / sales-tax rate (prices are tax-inclusive) and tier."),
     "dim_channel": ("channel", "Acquisition channels and their cost model."),
     "dim_campaign": ("campaign", "Campaigns with channel, geo target and flight dates."),
-    "dim_plan": ("plan", "Subscription plans with today's prices (from candy.ai/subscriptions, Sep-2026)."),
+    "dim_plan": ("plan", "Subscription plans with current prices (category benchmark, Sep-2026)."),
     "dim_price_book": ("price book version", "Price history per plan. PB3 matches the live site; PB1 / PB2 are modelled."),
     "dim_token_pack": ("token pack", "Token top-up packs (illustrative: the token store is behind login)."),
     "dim_payment_method": ("payment method", "Card and crypto methods (Visa, Mastercard and crypto are accepted on the site)."),

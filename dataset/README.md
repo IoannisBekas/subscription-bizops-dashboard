@@ -1,5 +1,5 @@
-# Candy AI - Strategy & BizOps dataset (synthetic)
-_Modelled on candy.ai's public business model as checked on 15-Sep-2026. All volumes, costs and outcomes are simulated: this is not real company data._
+# Strategy & BizOps dataset for a subscription business (synthetic)
+_A modelled consumer subscription business in the AI-companion category. Price points follow a live site checked on 15-Sep-2026; all volumes, costs and outcomes are simulated. This is not any company's reported data._
 
 ## At a glance
 Actuals Jan-2024 to Aug-2026 (daily / monthly), Budget FY2025 & FY2026, Forecast Sep-Dec 2026. Reporting currency USD; revenue is ex-VAT.
@@ -7,8 +7,8 @@ Actuals Jan-2024 to Aug-2026 (daily / monthly), Budget FY2025 & FY2026, Forecast
 Aug-2026: 175,203 active subscribers, subscription ARR $13.2M, net-revenue run-rate $22.0M.
 Net revenue: FY2024 $3.5M, FY2025 $9.3M, Jan-Aug 2026 $12.0M.
 
-## What comes from the live site vs what is modelled
-From candy.ai: 1 / 3 / 12-month plans at 13.99 / 8.99 / 3.99 per month (list 13.99; 35% and 70% off), 100 tokens a month with Premium, token top-ups, token uses (images, voice messages, voice calls, private content packs, video, custom characters), Visa / Mastercard / crypto (BTC, ETH, USDC, LTC), free trial tier, French site, charges shown as EverAI (Malta).
+## What is taken from the category vs what is modelled
+Taken from live pricing pages: 1 / 3 / 12-month plans at 13.99 / 8.99 / 3.99 per month (list 13.99; 35% and 70% off), 100 tokens a month with Premium, token top-ups, token uses (images, voice messages, voice calls, private content packs, video, custom characters), Visa / Mastercard / crypto (BTC, ETH, USDC, LTC), a free tier and a localised French site.
 Modelled: earlier price books, token pack prices (store is behind login), traffic, conversion, retention, channels and campaigns, processors (generic names), GPU providers (generic), costs, headcount, budgets and experiments.
 
 ## How the tables fit together
@@ -59,7 +59,7 @@ Use dim_business_events to annotate charts (launches, price changes, outages, co
 - `dim_country` | 17 rows | CSV + Excel | Markets with pricing currency, VAT / sales-tax rate (prices are tax-inclusive) and tier.
 - `dim_channel` | 10 rows | CSV + Excel | Acquisition channels and their cost model.
 - `dim_campaign` | 34 rows | CSV + Excel | Campaigns with channel, geo target and flight dates.
-- `dim_plan` | 3 rows | CSV + Excel | Subscription plans with today's prices (from candy.ai/subscriptions, Sep-2026).
+- `dim_plan` | 3 rows | CSV + Excel | Subscription plans with current prices (category benchmark, Sep-2026).
 - `dim_price_book` | 3 rows | CSV + Excel | Price history per plan. PB3 matches the live site; PB1 / PB2 are modelled.
 - `dim_token_pack` | 6 rows | CSV + Excel | Token top-up packs (illustrative: the token store is behind login).
 - `dim_payment_method` | 7 rows | CSV + Excel | Card and crypto methods (Visa, Mastercard and crypto are accepted on the site).

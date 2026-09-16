@@ -155,7 +155,7 @@ EVENTS = [
     ("2025-07-15", "Retention", "Onboarding voice preview + memory recap (EXP05)", "Month-1 retention up about 5pp"),
     ("2025-07-25", "Compliance", "UK Online Safety Act age assurance live", "UK sign-ups down; age-check costs"),
     ("2025-09-01", "Ops", "Live chat support launched", "Channel mix shift; faster first response"),
-    ("2025-09-15", "Content", "Candy Shorts episodic series launched", "Content production cost starts"),
+    ("2025-09-15", "Content", "Episodic video series launched", "Content production cost starts"),
     ("2025-10-31", "Marketing", "Push & pop networks sunset (lowest LTV:CAC)", "Lower volume, better cohort quality"),
     ("2025-11-10", "Unit economics", "Free message cap 50 -> 30 per day (EXP06)", "Free-tier GPU cost down about 30%"),
     ("2025-11-17", "Infra", "Prefix/KV caching and video model v3", "Chat and video unit cost down"),

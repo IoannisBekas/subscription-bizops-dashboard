@@ -79,7 +79,19 @@
     if (!tip) { tip = document.createElement("div"); tip.id = "tooltip"; document.body.appendChild(tip); }
     return tip;
   }
-  function showTip(evt, title, rows) {
+  function pointer(e) {
+    const t = e.touches && e.touches[0];
+    return t ? { clientX: t.clientX, clientY: t.clientY } : e;
+  }
+  function bind(node, move, leave) {
+    node.addEventListener("mousemove", move);
+    node.addEventListener("mouseleave", leave || hideTip);
+    node.addEventListener("touchstart", move, { passive: true });
+    node.addEventListener("touchmove", move, { passive: true });
+    node.addEventListener("touchend", leave || hideTip);
+  }
+  function showTip(evt0, title, rows) {
+    const evt = pointer(evt0);
     const t = tooltip();
     t.innerHTML = '<div class="tt-title">' + title + "</div>" +
       rows.map((r) => '<div class="tt-row"><span class="k">' +
@@ -95,6 +107,22 @@
   }
   function hideTip() { if (tip) tip.style.opacity = 0; }
 
+  const NARROW = 520;                       // below this width charts switch to compact mode
+  function trunc(str, n) { return String(str).length > n ? String(str).slice(0, n - 1) + "…" : String(str); }
+
+  /* legend inside the SVG, for when there is no room for labels at the line ends */
+  function inlineLegend(svg, box, series, w) {
+    let x = box.l, y = 10;
+    series.filter((s) => s.name).forEach((s) => {
+      const label = trunc(s.name, 22), width = label.length * 6 + 22;
+      if (x + width > w - 4 && x > box.l) { x = box.l; y += 14; }
+      el("rect", { x: x, y: y - 7, width: 10, height: 10, fill: s.color }, svg);
+      text(svg, x + 14, y + 2, label, { fill: C.ink2, size: 11.5 });
+      x += width;
+    });
+    return y + 8;
+  }
+
   /* ---------- frame: gridlines, y labels, x labels, zero line ---------- */
   function frame(svg, box, yScale, yTickVals, yFmt, xLabels, xPos, opts) {
     opts = opts || {};
@@ -104,9 +132,13 @@
       el("line", { x1: box.l, x2: box.r, y1: y, y2: y, stroke: v === 0 ? C.ink : C.grid, "stroke-width": v === 0 ? 1.3 : 1 }, g);
       text(g, box.l - 7, y + 3.5, fmt(v, yFmt), { anchor: "end", fill: C.muted });
     });
+    let lastX = -1e9;
     (xLabels || []).forEach((lab, i) => {
       if (lab === null) return;
-      text(g, xPos[i], box.b + 15, lab.text !== undefined ? lab.text : lab,
+      const str = lab.text !== undefined ? lab.text : lab;
+      if (xPos[i] - lastX < String(str).length * 6 + 8) return;   // skip labels that would collide
+      lastX = xPos[i];
+      text(g, xPos[i], box.b + 15, str,
         { anchor: "middle", fill: lab.strong ? C.ink2 : C.muted, weight: lab.strong ? 700 : 400 });
     });
     if (opts.baseline !== false && !yTickVals.includes(0)) {
@@ -127,7 +159,7 @@
   /* ---------- mounting + resize ---------- */
   function mount(node, draw) {
     const render = () => {
-      const w = Math.max(320, node.clientWidth || 600);
+      const w = Math.max(60, node.clientWidth || 600);   // never wider than the container
       node.innerHTML = "";
       draw(node, w);
     };
@@ -150,9 +182,12 @@
   function lineChart(node, spec) {
     mount(node, (host, w) => {
       const h = spec.height || 250;
-      const m = { t: 12, r: spec.labelRight === false ? 14 : 78, b: 24, l: spec.leftPad || 46 };
+      const narrow = w < NARROW;
+      const endLabels = spec.labelRight !== false && !narrow;
+      const m = { t: 12, r: endLabels ? 78 : 14, b: 24, l: spec.leftPad || 46 };
       const svg = svgRoot(host, w, h);
       const box = { l: m.l, r: w - m.r, t: m.t, b: h - m.b };
+      if (narrow && spec.series.filter((x) => x.name).length > 1) box.t = inlineLegend(svg, box, spec.series, w);
       const vals = spec.series.flatMap((s) => s.values.map(num)).filter((v) => v !== null);
       let lo = spec.min !== undefined ? spec.min : Math.min(...vals);
       let hi = spec.max !== undefined ? spec.max : Math.max(...vals);
@@ -185,7 +220,7 @@
           d: d, fill: "none", stroke: s.color, "stroke-width": s.width || 2.2,
           "stroke-dasharray": s.dash || null, "stroke-linejoin": "round", "stroke-linecap": "round", opacity: s.opacity || 1
         }, svg);
-        if (spec.labelRight !== false && s.name) {
+        if (endLabels && s.name) {
           let li = pts.length - 1;
           while (li > 0 && pts[li][1] === null) li--;
           if (pts[li][1] !== null) labels.push({ y: pts[li][1], name: s.name, color: s.color });
@@ -269,7 +304,8 @@
   function waterfall(node, spec) {
     mount(node, (host, w) => {
       const h = spec.height || 300;
-      const m = { t: 14, r: 14, b: 58, l: spec.leftPad || 52 };
+      const tight = w < 620;
+      const m = { t: 14, r: 14, b: tight ? 86 : 58, l: spec.leftPad || 52 };
       const svg = svgRoot(host, w, h);
       const box = { l: m.l, r: w - m.r, t: m.t, b: h - m.b };
       const bars = [{ label: spec.startLabel, value: spec.start, type: "total" }]
@@ -296,11 +332,19 @@
           el("line", { x1: cx - bw / 2, x2: cx + step + bw / 2, y1: y1, y2: y1, stroke: C.muted, "stroke-width": 1, "stroke-dasharray": "2 2" }, svg);
         }
         const above = b.value >= 0;
-        text(svg, cx, (above ? Math.min(y0, y1) - 6 : Math.max(y0, y1) + 13), fmt(b.value, spec.labelFormat || spec.yFormat),
-          { anchor: "middle", fill: b.type === "total" ? C.ink : col, weight: 700, size: 11.5 });
-        const words = String(b.label).split(" ");
-        const lines = words.length > 2 ? [words.slice(0, Math.ceil(words.length / 2)).join(" "), words.slice(Math.ceil(words.length / 2)).join(" ")] : [b.label];
-        lines.forEach((ln, k) => text(svg, cx, box.b + 15 + k * 12, ln, { anchor: "middle", fill: C.ink2, size: 11 }));
+        const vlab = fmt(b.value, spec.labelFormat || spec.yFormat);
+        if (vlab.length * 6.2 < step * 1.6) {
+          text(svg, cx, (above ? Math.min(y0, y1) - 6 : Math.max(y0, y1) + 13), vlab,
+            { anchor: "middle", fill: b.type === "total" ? C.ink : col, weight: 700, size: 11.5 });
+        }
+        if (tight) {
+          const t2 = text(svg, cx, box.b + 13, trunc(b.label, 15), { anchor: "end", fill: C.ink2, size: 10.5 });
+          t2.setAttribute("transform", "rotate(-45 " + cx.toFixed(1) + " " + (box.b + 13) + ")");
+        } else {
+          const words = String(b.label).split(" ");
+          const lines = words.length > 2 ? [words.slice(0, Math.ceil(words.length / 2)).join(" "), words.slice(Math.ceil(words.length / 2)).join(" ")] : [b.label];
+          lines.forEach((ln, k) => text(svg, cx, box.b + 15 + k * 12, ln, { anchor: "middle", fill: C.ink2, size: 11 }));
+        }
         const hit = el("rect", { x: cx - step / 2, y: box.t, width: Math.max(1, step), height: Math.max(1, box.b - box.t), fill: "transparent" }, svg);
         hit.addEventListener("mousemove", (e) => showTip(e, b.label, [{ k: b.type === "total" ? "MRR" : "Change", v: fmt(b.value, spec.yFormat), color: col }]));
         hit.addEventListener("mouseleave", hideTip);
@@ -336,7 +380,7 @@
         while (placed.some((q) => Math.abs(q.x - cx) < 4.2 * Math.max(p.label.length, q.len) && Math.abs(q.y - ly) < 12)) ly += 13;
         if (ly > cy - rr - 5 + 26) ly = cy + rr + 13;
         placed.push({ x: cx, y: ly, len: p.label.length });
-        const t = text(svg, cx, ly, p.label, { anchor: "middle", fill: C.ink2, size: 11, weight: 700 });
+        const t = text(svg, cx, ly, trunc(p.label, w < NARROW ? 13 : 30), { anchor: "middle", fill: C.ink2, size: 11, weight: 700 });
         t.setAttribute("paint-order", "stroke");
         t.setAttribute("stroke", C.surface);
         t.setAttribute("stroke-width", 3.5);
@@ -368,7 +412,8 @@
         const yy = box.t + i * rowH;
         const x0 = x(Math.min(0, d.value)), x1 = x(Math.max(0, d.value));
         el("rect", { x: x0, y: yy + 3, width: Math.max(1, x1 - x0), height: rowH - 10, fill: d.color || C.blue, rx: 0 }, svg);
-        text(svg, m.l - 8, yy + rowH / 2 + 1, d.label, { anchor: "end", fill: C.ink2, size: 12, baseline: "middle" });
+        text(svg, m.l - 8, yy + rowH / 2 + 1, trunc(d.label, Math.max(8, Math.floor((m.l - 12) / 5.9))),
+          { anchor: "end", fill: C.ink2, size: w < NARROW ? 11 : 12, baseline: "middle" });
         const lab = fmt(d.value, spec.labelFormat || spec.xFormat);
         const inside = d.value < 0 && x0 - lab.length * 6.4 < m.l;
         text(svg, d.value >= 0 ? x1 + 6 : (inside ? x0 + 6 : x0 - 6), yy + rowH / 2 + 1, lab,
@@ -387,7 +432,10 @@
   function heatmap(node, spec) {
     mount(node, (host, w) => {
       const m = { t: 22, r: 8, b: 8, l: spec.leftPad || 56 };
-      const cols = spec.colLabels.length, rows = spec.rowLabels.length;
+      const fit = Math.max(6, Math.floor((w - m.l - m.r) / 13));
+      const colLabels = spec.colLabels.slice(0, fit);
+      const values = spec.values.map((r) => r.slice(0, fit));
+      const cols = colLabels.length, rows = spec.rowLabels.length;
       const cw = Math.max(10, (w - m.l - m.r) / cols);
       const ch = spec.cellHeight || 16;
       const h = m.t + rows * ch + m.b;
@@ -399,13 +447,13 @@
         const t = Math.max(0, Math.min(1, (v - lo) / (hi - lo || 1)));
         return C.ramp[Math.min(C.ramp.length - 1, Math.floor(t * C.ramp.length))];
       };
-      spec.colLabels.forEach((c, j) => {
+      colLabels.forEach((c, j) => {
         if (cols > 14 && j % 2) return;
         text(svg, m.l + cw * (j + .5), m.t - 7, c, { anchor: "middle", fill: C.muted, size: 10.5 });
       });
       spec.rowLabels.forEach((rlab, i) => {
         text(svg, m.l - 7, m.t + ch * i + ch / 2 + 3.5, rlab, { anchor: "end", fill: C.ink2, size: 10.5 });
-        spec.values[i].forEach((v, j) => {
+        values[i].forEach((v, j) => {
           if (v === null || v === undefined) return;
           const fill = color(v);
           const cell = el("rect", { x: m.l + cw * j, y: m.t + ch * i, width: cw - 1.5, height: ch - 1.5, fill: fill }, svg);
@@ -426,9 +474,11 @@
   function areaStack(node, spec) {
     mount(node, (host, w) => {
       const h = spec.height || 240;
-      const m = { t: 12, r: spec.rightPad || 96, b: 24, l: spec.leftPad || 46 };
+      const narrow = w < NARROW;
+      const m = { t: 12, r: narrow ? 14 : (spec.rightPad || 96), b: 24, l: spec.leftPad || 46 };
       const svg = svgRoot(host, w, h);
       const box = { l: m.l, r: w - m.r, t: m.t, b: h - m.b };
+      if (narrow) box.t = inlineLegend(svg, box, spec.series, w);
       const n = spec.x.length;
       const x = scale(0, n - 1, box.l, box.r);
       const y = scale(0, 1, box.b, box.t);
@@ -441,7 +491,7 @@
           cum.slice().reverse().map((v, k) => "L" + x(n - 1 - k).toFixed(1) + "," + y(v).toFixed(1)).join("") + "Z";
         el("path", { d: d, fill: s.color, "fill-opacity": .92, stroke: C.surface, "stroke-width": 1 }, svg);
         const mid = (cum[n - 1] + top[n - 1]) / 2;
-        text(svg, box.r + 6, y(mid) + 4, s.name, { fill: s.color, weight: 700, size: 12 });
+        if (!narrow) text(svg, box.r + 6, y(mid) + 4, s.name, { fill: s.color, weight: 700, size: 12 });
         for (let i = 0; i < n; i++) cum[i] = top[i];
       });
       const hover = el("line", { y1: box.t, y2: box.b, stroke: C.ink, "stroke-width": 1, opacity: 0 }, svg);

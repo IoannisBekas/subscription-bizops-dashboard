@@ -1,6 +1,6 @@
 """Run the full pipeline: simulate, build every table, reconcile, export.
 
-    python build.py            -> writes ../csv/*.csv, ../Candy_AI_BizOps_Dataset.xlsx
+    python build.py            -> writes ../csv/*.csv, ../Subscription_BizOps_Dataset.xlsx
 """
 import sys
 import time
